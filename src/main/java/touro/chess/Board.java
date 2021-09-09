@@ -1,9 +1,56 @@
 package touro.chess;
 
+import java.util.List;
+
 public class Board {
 
     private static final int COLUMNS = 8;
     private static final int ROWS = 8;
+    private Square[][] squares = new Square[COLUMNS][ROWS];
+
+    public Board()
+    {
+        for(int column = 0; column < COLUMNS; column++)
+        {
+            for (int row = 0; row < ROWS; row++)
+            {
+                Location location = new Location(row, column);
+                PieceColor color = row < 2 ? PieceColor.White : PieceColor.Black;
+                if (row == 1 || row == 6) //pawn
+                {
+                    //squares[column][row] = new Square(location, new PawnPiece(location, color));
+                }
+                else  if (row == 0 || row == 7)
+                {
+                    if (column == 0 || column == 7) //rook
+                    {
+                        //squares[column][row] = new Square(location, new RookPiece(location, color));
+                    }
+                    else if (column == 1 || column == 6) //knight
+                    {
+                        //squares[column][row] = new Square(location, new KnightPiece(location, color));
+                    }
+                    else if (column == 2 || column == 5) //bishop
+                    {
+                        //squares[column][row] = new Square(location, new BishopPiece(location, color));
+                    }
+                    else if(column == 3) //king
+                    {
+                        //squares[column][row] = new Square(location, new KingPiece(location, color));
+                    }
+                    else if (column == 4) //queen
+                    {
+                        //squares[column][row] = new Square(location, new QueenPiece(location, color));
+                    }
+                }
+                else
+                {
+                    squares[column][row] = new Square(location);
+                }
+            }
+        }
+    }
+
 
     /**
      * Verify that a Move is legal on this Board.

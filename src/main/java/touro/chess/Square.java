@@ -11,6 +11,12 @@ public class Square {
         this.location = location;
     }
 
+    public Square(Location location, AbstractPiece piece)
+    {
+        this.location = location;
+        this.piece = piece;
+    }
+
     public Location getLocation() {
         return location;
     }
