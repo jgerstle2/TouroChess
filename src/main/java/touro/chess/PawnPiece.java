@@ -23,30 +23,59 @@ public class PawnPiece extends AbstractPiece {
         List<Move> moves = new ArrayList<Move>();
 
         if (super.getColor().toString().equals("Black")) {
-            //add 1,0 or 2,0 and 1,1 1,-1
 
-            if (row == 2) {
+            //assuming black starts at row 1 (assuming rows and col are from 0-7)
+            //add 1,0 1,1 1,-1 and for row 1 or 6 add 2,0
+
+            //if this is first move
+            if (row == 1) {
                 moves.add(new Move(location, new Location(row + 2, col), false, false));
-            } else {
-                moves.add(new Move(location, new Location(row + 1, col), false, false));
             }
 
+            //move forward one
+            if (row != 7) {
 
-            moves.add(new Move(location, new Location(row + 1, col + 1), false, true));
-            moves.add(new Move(location, new Location(row + 1, col - 1), false, true));
+                moves.add(new Move(location, new Location(row + 1, col), false, false));
 
-        } else if (super.getColor().toString().equals("White")) {
-            //add -1,0 or -2,0 and -1,-1 -1,+1
 
-            if (row == 7) {
+                //move to the left
+                if (col != 7) {
+                    moves.add(new Move(location, new Location(row + 1, col + 1), false, true));
+                }
+
+                //move to the right
+                if (col != 0) {
+                    moves.add(new Move(location, new Location(row + 1, col - 1), false, true));
+                }
+            }
+
+        }
+
+        else if (super.getColor().toString().equals("White")) {
+            //assuming white starts at row 6 (assuming rows and col are from 0-7)
+            //add -1,0 -1,-1 -1,+1 and for row 1 or 6 add -2,0
+
+
+            //if this is first move
+            if (row == 6) {
                 moves.add(new Move(location, new Location(row - 2, col), false, false));
             }
-            else{
+
+            //move forward one
+            if (row != 0) {
                 moves.add(new Move(location, new Location(row - 1, col), false, false));
+
+                //move to the left
+                if (col != 7) {
+                    moves.add(new Move(location, new Location(row - 1, col + 1), false, true));
+                }
+
+                //move to the right
+                if (col != 0) {
+                    moves.add(new Move(location, new Location(row - 1, col - 1), false, true));
+                }
             }
 
-            moves.add(new Move(location, new Location(row - 1, col - 1), false, true));
-            moves.add(new Move(location, new Location(row - 1, col + 1), false, true));
 
         }
 
