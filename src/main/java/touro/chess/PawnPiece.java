@@ -49,9 +49,8 @@ public class PawnPiece extends AbstractPiece {
                 }
             }
 
-        }
+        } else if (super.getColor().toString().equals("White")) {
 
-        else if (super.getColor().toString().equals("White")) {
             //assuming white starts at row 6 (assuming rows and col are from 0-7)
             //add -1,0 -1,-1 -1,+1 and for row 1 or 6 add -2,0
 

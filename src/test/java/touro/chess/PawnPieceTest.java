@@ -42,7 +42,6 @@ public class PawnPieceTest {
         assertEquals(locationExp3.toString(), thirdMove.toString());
     }
 
-
     @Test
     public void getMovesWhite() {
         // given
@@ -257,6 +256,7 @@ public class PawnPieceTest {
 
 
     }
+
     @Test
     public void getMovesBlackLastRow() {
 
