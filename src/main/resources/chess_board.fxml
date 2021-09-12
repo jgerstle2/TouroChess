@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Label?>
+<?import java.util.ArrayList?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:id="chessBoardView"
+          stylesheets="@chess.css"
+          gridLinesVisible="true"
+          maxHeight="-Infinity" maxWidth="-Infinity"
+          minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="500.0" prefWidth="500.0">
+
+    <Label fx:id="light0" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Label fx:id="dark1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label fx:id="light2" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Label fx:id="dark3" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    <Label fx:id="light4" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+    <Label fx:id="dark5" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+    <Label fx:id="light6" GridPane.columnIndex="6" GridPane.rowIndex="0"/>
+    <Label fx:id="dark7" GridPane.columnIndex="7" GridPane.rowIndex="0"/>
+
+    <Label fx:id="dark8" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label fx:id="light9" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label fx:id="dark10" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Label fx:id="light11" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <Label fx:id="dark12" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+    <Label fx:id="light13" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
+    <Label fx:id="dark14" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
+    <Label fx:id="light15" GridPane.columnIndex="7" GridPane.rowIndex="1"/>
+
+    <Label fx:id="light16" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label fx:id="dark17" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label fx:id="light18" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label fx:id="dark19" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <Label fx:id="light20" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <Label fx:id="dark21" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+    <Label fx:id="light22" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
+    <Label fx:id="dark23" GridPane.columnIndex="7" GridPane.rowIndex="2"/>
+
+    <Label fx:id="dark24" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Label fx:id="light25" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label fx:id="dark26" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+    <Label fx:id="light27" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+    <Label fx:id="dark28" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+    <Label fx:id="light29" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
+    <Label fx:id="dark30" GridPane.columnIndex="6" GridPane.rowIndex="3"/>
+    <Label fx:id="light31" GridPane.columnIndex="7" GridPane.rowIndex="3"/>
+
+    <Label fx:id="light32" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Label fx:id="dark33" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label fx:id="light34" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+    <Label fx:id="dark35" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+    <Label fx:id="light36" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+    <Label fx:id="dark37" GridPane.columnIndex="5" GridPane.rowIndex="4"/>
+    <Label fx:id="light38" GridPane.columnIndex="6" GridPane.rowIndex="4"/>
+    <Label fx:id="dark39" GridPane.columnIndex="7" GridPane.rowIndex="4"/>
+
+    <Label fx:id="dark40" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <Label fx:id="light41" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label fx:id="dark42" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+    <Label fx:id="light43" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+    <Label fx:id="dark44" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+    <Label fx:id="light45" GridPane.columnIndex="5" GridPane.rowIndex="5"/>
+    <Label fx:id="dark46" GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+    <Label fx:id="light47" GridPane.columnIndex="7" GridPane.rowIndex="5"/>
+
+    <Label fx:id="light48" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <Label fx:id="dark49" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <Label fx:id="light50" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+    <Label fx:id="dark51" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+    <Label fx:id="light52" GridPane.columnIndex="4" GridPane.rowIndex="6"/>
+    <Label fx:id="dark53" GridPane.columnIndex="5" GridPane.rowIndex="6"/>
+    <Label fx:id="light54" GridPane.columnIndex="6" GridPane.rowIndex="6"/>
+    <Label fx:id="dark55" GridPane.columnIndex="7" GridPane.rowIndex="6"/>
+
+    <Label fx:id="dark56" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+    <Label fx:id="light57" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Label fx:id="dark58" GridPane.columnIndex="2" GridPane.rowIndex="7"/>
+    <Label fx:id="light59" GridPane.columnIndex="3" GridPane.rowIndex="7"/>
+    <Label fx:id="dark60" GridPane.columnIndex="4" GridPane.rowIndex="7"/>
+    <Label fx:id="light61" GridPane.columnIndex="5" GridPane.rowIndex="7"/>
+    <Label fx:id="dark62" GridPane.columnIndex="6" GridPane.rowIndex="7"/>
+    <Label fx:id="light63" GridPane.columnIndex="7" GridPane.rowIndex="7"/>
+
+    <fx:define>
+
+    <ArrayList fx:id="lightLabels">
+        <fx:reference source="light0" styleClass="light"/>
+        <fx:reference source="light2" styleClass="light"/>
+        <fx:reference source="light4" styleClass="light"/>
+        <fx:reference source="light6" styleClass="light"/>
+        <fx:reference source="light9" styleClass="light"/>
+        <fx:reference source="light11" styleClass="light"/>
+        <fx:reference source="light13" styleClass="light"/>
+        <fx:reference source="light15" styleClass="light"/>
+        <fx:reference source="light16" styleClass="light"/>
+        <fx:reference source="light18" styleClass="light"/>
+        <fx:reference source="light20" styleClass="light"/>
+        <fx:reference source="light22" styleClass="light"/>
+        <fx:reference source="light25" styleClass="light"/>
+        <fx:reference source="light27" styleClass="light"/>
+        <fx:reference source="light29" styleClass="light"/>
+        <fx:reference source="light31" styleClass="light"/>
+        <fx:reference source="light32" styleClass="light"/>
+        <fx:reference source="light34" styleClass="light"/>
+        <fx:reference source="light36" styleClass="light"/>
+        <fx:reference source="light38" styleClass="light"/>
+        <fx:reference source="light41" styleClass="light"/>
+        <fx:reference source="light43" styleClass="light"/>
+        <fx:reference source="light45" styleClass="light"/>
+        <fx:reference source="light47" styleClass="light"/>
+        <fx:reference source="light48" styleClass="light"/>
+        <fx:reference source="light50" styleClass="light"/>
+        <fx:reference source="light52" styleClass="light"/>
+        <fx:reference source="light54" styleClass="light"/>
+        <fx:reference source="light57" styleClass="light"/>
+        <fx:reference source="light59" styleClass="light"/>
+        <fx:reference source="light61" styleClass="light"/>
+        <fx:reference source="light63" styleClass="light"/>
+    </ArrayList>
+
+    <ArrayList fx:id="darkLabels">
+        <fx:reference source="dark1" styleClass="dark"/>
+        <fx:reference source="dark3" styleClass="dark"/>
+        <fx:reference source="dark5" styleClass="dark"/>
+        <fx:reference source="dark7" styleClass="dark"/>
+        <fx:reference source="dark8" styleClass="dark"/>
+        <fx:reference source="dark10" styleClass="dark"/>
+        <fx:reference source="dark12" styleClass="dark"/>
+        <fx:reference source="dark14" styleClass="dark"/>
+        <fx:reference source="dark17" styleClass="dark"/>
+        <fx:reference source="dark19" styleClass="dark"/>
+        <fx:reference source="dark21" styleClass="dark"/>
+        <fx:reference source="dark23" styleClass="dark"/>
+        <fx:reference source="dark24" styleClass="dark"/>
+        <fx:reference source="dark26" styleClass="dark"/>
+        <fx:reference source="dark28" styleClass="dark"/>
+        <fx:reference source="dark30" styleClass="dark"/>
+        <fx:reference source="dark33" styleClass="dark"/>
+        <fx:reference source="dark35" styleClass="dark"/>
+        <fx:reference source="dark37" styleClass="dark"/>
+        <fx:reference source="dark39" styleClass="dark"/>
+        <fx:reference source="dark40" styleClass="dark"/>
+        <fx:reference source="dark42" styleClass="dark"/>
+        <fx:reference source="dark44" styleClass="dark"/>
+        <fx:reference source="dark46" styleClass="dark"/>
+        <fx:reference source="dark49" styleClass="dark"/>
+        <fx:reference source="dark51" styleClass="dark"/>
+        <fx:reference source="dark53" styleClass="dark"/>
+        <fx:reference source="dark55" styleClass="dark"/>
+        <fx:reference source="dark56" styleClass="dark"/>
+        <fx:reference source="dark58" styleClass="dark"/>
+        <fx:reference source="dark60" styleClass="dark"/>
+        <fx:reference source="dark62" styleClass="dark"/>
+    </ArrayList>
+
+    </fx:define>
+
+</GridPane>
