@@ -13,41 +13,150 @@ public class Board {
     public boolean isLegal(Move move) {
         Square currentSquare = new Square(move.getFrom());
         Square destinationSquare = new Square(move.getTo());
+        int currentRow = move.getFrom().getRow();
+        int currentColumn = move.getFrom().getColumn();
+        int destinationRow = move.getTo().getRow();
+        int destinationColumn = move.getTo().getColumn();
+        Location currentLocation = new Location(currentRow, currentColumn);
         AbstractPiece currentPiece = currentSquare.getPiece();
-        AbstractPiece destinationPiece = destinationSquare.getPiece();
+        AbstractPiece destinationPiece = destinationSquare.getPiece(); //check that its not null
 
         //this checks if to or from is not on the board
-        if (move.getFrom().getColumn() < 1 || move.getFrom().getColumn() > 8
-            || move.getFrom().getRow() < 1 || move.getFrom().getRow() > 8
-            || move.getTo().getColumn() < 1 || move.getTo().getColumn() > 8
-            || move.getTo().getRow() < 1 || move.getTo().getRow() > 8)
+        if (currentColumn < 1 || currentColumn > 8
+            || currentRow < 1 || currentRow > 8
+            || destinationColumn < 1 || destinationColumn > 8
+            || destinationRow < 1 || destinationRow > 8)
         {
             return false;
         }
-        else{ //do i have to check that the currentSquare isnt empty or do i assume it has a piece?
+        else{ //assuming that the current square has a piece
             if(destinationSquare.hasPiece() && destinationPiece.getColor().equals(currentPiece.getColor())){
                 return false;   //returns false if destination has piece of same color
             }
             else{   //this runs if destination is empty or contains opposing color piece
-                //if move is jump
+
                 if(move.isJump()){
                     return true;
                 }
 
-                //if move is straight
-                else if(currentSquare.getLocation().getColumn() == destinationSquare.getLocation().getColumn() ||
-                   currentSquare.getLocation().getRow() == destinationSquare.getLocation().getRow()){
-                    //loop through path until destination
-                    //return false if any currentSquare has a piece, then break loop
-                    //return true if each square is empty
+                //if move is vertical
+                else if(currentColumn == destinationColumn){
+                    //if move is forward
+                    if(currentRow < destinationRow){
+                        //increment row, keep column
+                        for(int row = (currentRow + 1); row < (destinationRow + 1); row++){
+                            currentLocation = new Location(row, currentColumn);
+                            currentSquare = new Square(currentLocation);
+                            if(currentSquare.hasPiece()){
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    //if move is backwards
+                    else if(currentRow > destinationRow){
+                        //decrement row, keep column
+                        for(int row = (currentRow - 1); row > (destinationRow - 1); row--){
+                            currentLocation = new Location(row, currentColumn);
+                            currentSquare = new Square(currentLocation);
+                            if(currentSquare.hasPiece()){
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
                 }
+
+                //if move is horizontal
+                else if(currentRow == destinationRow){
+                    //if move is to the right
+                    if(currentColumn < destinationColumn){
+                        //increment column, keep row
+                        for(int col = (currentColumn + 1); col < (destinationColumn + 1); col++){
+                            currentLocation = new Location(currentRow, col);
+                            currentSquare = new Square(currentLocation);
+                            if(currentSquare.hasPiece()){
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    //if move is to the left
+                    else{
+                        //decrement column, keep row
+                        for(int col = (currentColumn - 1); col > (destinationColumn - 1); col--){
+                            currentLocation = new Location(currentRow, col);
+                            currentSquare = new Square(currentLocation);
+                            if(currentSquare.hasPiece()){
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+
                 //if move is diagonal
                 //if current.col - destination.col equals current.row - destination.row
-                else if((currentSquare.getLocation().getColumn() - destinationSquare.getLocation().getColumn())
-                == (currentSquare.getLocation().getRow() - destinationSquare.getLocation().getRow())){
-                    //loop through path until destination
-                    //return false if any currentSquare has a piece, then break loop
-                    //return true if each square is empty
+                else if((currentColumn - destinationColumn) == (currentRow - destinationRow)){
+                    int row = currentRow;
+                    //if move is forward
+                    if(currentRow < destinationRow){
+                        //if move is to the right
+                        if(currentColumn < destinationColumn){
+                            //increment row, increment column
+                            for(int col = (currentColumn + 1); col < (destinationColumn + 1); col++){
+                                row++;
+                                currentLocation = new Location(row, col);
+                                currentSquare = new Square(currentLocation);
+                                if(currentSquare.hasPiece()){
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+                        //if move is to the left
+                        else{
+                            //increment row, decrement column
+                            for(int col = (currentColumn - 1); col > (destinationColumn - 1); col--){
+                                row++;
+                                currentLocation = new Location(row, col);
+                                currentSquare = new Square(currentLocation);
+                                if(currentSquare.hasPiece()){
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+                    }
+                    //if move is backward
+                    else{
+                        //if move is to the right
+                        if(currentColumn < destinationColumn){
+                            //decrement row, increment column
+                            for(int col = (currentColumn + 1); col < (destinationColumn + 1); col++){
+                                row--;
+                                currentLocation = new Location(row, col);
+                                currentSquare = new Square(currentLocation);
+                                if(currentSquare.hasPiece()){
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+                        //if move is to the left
+                        else {
+                            //decrement row, decrement column
+                            for(int col = (currentColumn - 1); col > (destinationColumn - 1); col--){
+                                row--;
+                                currentLocation = new Location(row, col);
+                                currentSquare = new Square(currentLocation);
+                                if(currentSquare.hasPiece()){
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+                    }
                 }
             }
         }
