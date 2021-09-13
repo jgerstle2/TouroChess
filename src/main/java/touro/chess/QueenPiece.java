@@ -1,5 +1,6 @@
 package touro.chess;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class QueenPiece extends AbstractPiece{
@@ -13,38 +14,19 @@ public class QueenPiece extends AbstractPiece{
         Location currentLocation = this.getLocation();
         int row = currentLocation.getRow();
         int col = currentLocation.getColumn();
-        List<Move> moveList = null;
+        List<Move> moveList = new ArrayList<>();
 
         //horizontal moves:
-        //right
-        int x,y;
-        x = col+2;
-        while(x < 9){
+        for (int x = 1; x <= 8; x++){
             moveList.add(new Move(currentLocation, new Location(x,row),false));
-            x+=2;
         }
-        //left
-        x = col-2;
-        while (x > 0 ){
-            moveList.add(new Move(currentLocation, new Location(x,row),false));
-            x-=2;
-        }
-
         //vertical moves:
-        //up
-        y = row+2;
-        while (y < 9){
-            moveList.add(new Move(currentLocation, new Location(col,y),false));
-            y+=2;
-        }
-        //down
-        y = row-2;
-        while (y > 0){
-            moveList.add(new Move(currentLocation, new Location(col,y),false));
-            y-=2;
+        for (int y = 1; y <= 8; y++){
+            moveList.add(new Move(currentLocation, new Location(col,y), false));
         }
 
         //diagonal moves:
+        int x, y;
         //up & right
         x = col +1;
         y = row +1;
