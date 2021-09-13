@@ -16,17 +16,35 @@ public class QueenPiece extends AbstractPiece{
         List<Move> moveList = null;
 
         //horizontal moves:
-        for (int x = 1; x <= 8; x++){
+        //right
+        int x,y;
+        x = col+2;
+        while(x < 9){
             moveList.add(new Move(currentLocation, new Location(x,row),false));
+            x+=2;
         }
+        //left
+        x = col-2;
+        while (x > 0 ){
+            moveList.add(new Move(currentLocation, new Location(x,row),false));
+            x-=2;
+        }
+
         //vertical moves:
-        for (int y = 1; y <= 8; y++){
-            moveList.add(new Move(currentLocation, new Location(col,y), false));
+        //up
+        y = row+2;
+        while (y < 9){
+            moveList.add(new Move(currentLocation, new Location(col,y),false));
+            y+=2;
+        }
+        //down
+        y = row-2;
+        while (y > 0){
+            moveList.add(new Move(currentLocation, new Location(col,y),false));
+            y-=2;
         }
 
         //diagonal moves:
-        int x, y;
-
         //up & right
         x = col +1;
         y = row +1;
