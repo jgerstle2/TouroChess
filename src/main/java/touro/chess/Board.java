@@ -28,7 +28,7 @@ public class Board {
         {
             return false;
         }
-        else if(move.getFrom() == move.getFrom()){
+        else if(move.getFrom() == move.getTo()){
             return false;
         }
         else if (destinationPiece != null && currentPiece != null) {
