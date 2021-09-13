@@ -1,5 +1,7 @@
 package touro.chess;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 
 public class Board {
@@ -31,8 +33,8 @@ public class Board {
         {
             int rowWhite = 1;
             int rowBlack = 6;
-//            squares[column][rowWhite].setPiece(new PawnPiece(new Location(rowWhite, column), PieceColor.White));
-//            squares[column][rowBlack].setPiece(new PawnPiece(new Location(rowBlack, column), PieceColor.Black));
+            squares[column][rowWhite].setPiece(new PawnPiece(new Location(rowWhite, column), PieceColor.White));
+            squares[column][rowBlack].setPiece(new PawnPiece(new Location(rowBlack, column), PieceColor.Black));
         }
         int rowWhite = 0;
         int rowBlack = 7;
@@ -58,6 +60,16 @@ public class Board {
         squares[4][rowWhite].setPiece(new QueenPiece(new Location(rowWhite, 4), PieceColor.White));
         squares[4][rowBlack].setPiece(new QueenPiece(new Location(rowBlack, 4), PieceColor.Black));
 
+    }
+
+    /**
+     * Returns the piece at a given location
+     * @param location
+     * @return AbstractPiece if there is a piece there, otherwise null
+     */
+    public @Nullable AbstractPiece getPiece(Location location)
+    {
+        return squares[location.getColumn()][location.getRow()].getPiece();
     }
 
 
