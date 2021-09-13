@@ -21,7 +21,6 @@ public class Board {
         AbstractPiece destinationPiece = destinationSquare.getPiece();
 
         //this checks if to or from is not on the board
-        //assuming that the current square has a piece
         if (currentColumn < 1 || currentColumn > 8
             || currentRow < 1 || currentRow > 8
             || destinationColumn < 1 || destinationColumn > 8
@@ -29,8 +28,11 @@ public class Board {
         {
             return false;
         }
+        else if(move.getFrom() == move.getFrom()){
+            return false;
+        }
         else if (destinationPiece != null && currentPiece != null) {
-            if (destinationSquare.hasPiece() && destinationPiece.getColor().equals(currentPiece.getColor())) {
+            if (destinationSquare.hasPiece() && destinationPiece.getColor() == currentPiece.getColor()) {
                 return false;   //returns false if destination has piece of same color
             }
         }
@@ -75,7 +77,6 @@ public class Board {
                             return false;
                         }
                     }
-                    return true;
                 }
                 //if move is to the left
                 else {
@@ -86,8 +87,8 @@ public class Board {
                             return false;
                         }
                     }
-                    return true;
                 }
+                return true;
             }
 
             //if move is diagonal
@@ -106,7 +107,6 @@ public class Board {
                                 return false;
                             }
                         }
-                        return true;
                     }
                     //if move is to the left
                     else {
@@ -118,7 +118,6 @@ public class Board {
                                 return false;
                             }
                         }
-                        return true;
                     }
                 }
                 //if move is backward
@@ -133,7 +132,6 @@ public class Board {
                                 return false;
                             }
                         }
-                        return true;
                     }
                     //if move is to the left
                     else {
@@ -145,9 +143,9 @@ public class Board {
                                 return false;
                             }
                         }
-                        return true;
                     }
                 }
+                return true;
             }
         }
         return false;
