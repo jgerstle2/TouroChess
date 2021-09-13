@@ -57,7 +57,7 @@ public class BoardTest {
         Square destinationSquare = new Square(destinationLocation);
         Square currentSquare = new Square(currentLocation);
         Square middleSquare = new Square(middleLocation);
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
+        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
             @Override
             public List<Move> getMoves() {
                 return null;
@@ -124,6 +124,22 @@ public class BoardTest {
         //when
         currentLocation = new Location(2,1);
         destinationLocation = new Location(2,5);
+        Square destinationSquare = new Square(destinationLocation);
+        Square currentSquare = new Square(currentLocation);
+        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
+            @Override
+            public List<Move> getMoves() {
+                return null;
+            }
+        };
+        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
+            @Override
+            public List<Move> getMoves() {
+                return null;
+            }
+        };
+        currentSquare.setPiece(currentPiece);
+        destinationSquare.setPiece(destinationPiece);
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
@@ -170,6 +186,22 @@ public class BoardTest {
         //when
         currentLocation = new Location(1,1);
         destinationLocation = new Location(8,8);
+        Square destinationSquare = new Square(destinationLocation);
+        Square currentSquare = new Square(currentLocation);
+        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
+            @Override
+            public List<Move> getMoves() {
+                return null;
+            }
+        };
+        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
+            @Override
+            public List<Move> getMoves() {
+                return null;
+            }
+        };
+        currentSquare.setPiece(currentPiece);
+        destinationSquare.setPiece(destinationPiece);
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
