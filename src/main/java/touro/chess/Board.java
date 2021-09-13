@@ -26,42 +26,38 @@ public class Board {
 
     public void setUpBoard()
     {
+        //pawns
         for(int column = 0; column < COLUMNS; column++)
         {
-            for (int row = 0; row < ROWS; row++)
-            {
-                Location location = new Location(row, column);
-                PieceColor color = row < 2 ? PieceColor.White : PieceColor.Black;
-                if (row == 1 || row == 6) //pawn
-                {
-                    //squares[column][row].setPiece(new PawnPiece(location, color));
-                }
-                else  if (row == 0 || row == 7)
-                {
-                    if (column == 0 || column == 7) //rook
-                    {
-                        //squares[column][row].setPiece(new RookPiece(location, color));
-                    }
-                    else if (column == 1 || column == 6) //knight
-                    {
-                        //squares[column][row].setPiece(new KnightPiece(location, color));
-                    }
-                    else if (column == 2 || column == 5) //bishop
-                    {
-                        //squares[column][row].setPiece(new BishopPiece(location, color));
-                    }
-                    else if(column == 3) //king
-                    {
-                        //squares[column][row].setPiece(new KingPiece(location, color));
-                    }
-                    else if (column == 4) //queen
-                    {
-                        //squares[column][row].setPiece(new QueenPiece(location, color));
-                    }
-                }
-
-            }
+            int rowWhite = 1;
+            int rowBlack = 6;
+//            squares[column][rowWhite].setPiece(new PawnPiece(new Location(rowWhite, column), PieceColor.White));
+//            squares[column][rowBlack].setPiece(new PawnPiece(new Location(rowBlack, column), PieceColor.Black));
         }
+        int rowWhite = 0;
+        int rowBlack = 7;
+        //rooks
+        squares[0][rowWhite].setPiece(new RookPiece(new Location(rowWhite, 0), PieceColor.White));
+        squares[7][rowWhite].setPiece(new RookPiece(new Location(rowWhite, 7), PieceColor.White));
+        squares[0][rowBlack].setPiece(new RookPiece(new Location(rowBlack, 0), PieceColor.Black));
+        squares[7][rowBlack].setPiece(new RookPiece(new Location(rowBlack, 7), PieceColor.White));
+        //knights
+        squares[1][rowWhite].setPiece(new KnightPiece(new Location(rowWhite, 1), PieceColor.White));
+        squares[6][rowWhite].setPiece(new KnightPiece(new Location(rowWhite, 6), PieceColor.White));
+        squares[1][rowBlack].setPiece(new KnightPiece(new Location(rowBlack, 1), PieceColor.Black));
+        squares[6][rowBlack].setPiece(new KnightPiece(new Location(rowBlack, 6), PieceColor.White));
+        //bishop
+        squares[2][rowWhite].setPiece(new BishopPiece(new Location(rowWhite, 2), PieceColor.White));
+        squares[5][rowWhite].setPiece(new BishopPiece(new Location(rowWhite, 5), PieceColor.White));
+        squares[2][rowBlack].setPiece(new BishopPiece(new Location(rowBlack, 2), PieceColor.Black));
+        squares[5][rowBlack].setPiece(new BishopPiece(new Location(rowBlack, 5), PieceColor.White));
+        //king
+        squares[3][rowWhite].setPiece(new KingPiece(new Location(rowWhite, 3), PieceColor.White));
+        squares[3][rowBlack].setPiece(new KingPiece(new Location(rowBlack, 3), PieceColor.Black));
+        //queen
+        squares[4][rowWhite].setPiece(new QueenPiece(new Location(rowWhite, 4), PieceColor.White));
+        squares[4][rowBlack].setPiece(new QueenPiece(new Location(rowBlack, 4), PieceColor.Black));
+
     }
 
 
