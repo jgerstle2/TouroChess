@@ -18,13 +18,19 @@ public class BoardTest {
     @Test
     public void isLegal_validVerticalMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(4,1);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Square currentSquare = squares[2][1];
+        Square destinationSquare = squares[4][1];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
             @Override
             public List<Move> getMoves() {
@@ -48,15 +54,21 @@ public class BoardTest {
     @Test
     public void isLegal_invalidVerticalMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(4,1);
         Location middleLocation = new Location(3,1);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
-        Square middleSquare = new Square(middleLocation);
+        Square currentSquare = squares[2][1];
+        Square destinationSquare = squares[4][1];
+        Square middleSquare = squares[3][1];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
             @Override
             public List<Move> getMoves() {
@@ -87,13 +99,19 @@ public class BoardTest {
     @Test
     public void isLegal_validHorizontalMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(4,1);
         Location destinationLocation = new Location(4,6);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Square currentSquare = squares[4][1];
+        Square destinationSquare = squares[4][6];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
             @Override
             public List<Move> getMoves() {
@@ -117,15 +135,19 @@ public class BoardTest {
     @Test
     public void isLegal_invalidHorizontalMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
-        Location currentLocation;
-        Location destinationLocation;
 
         //when
-        currentLocation = new Location(2,1);
-        destinationLocation = new Location(2,5);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Location currentLocation = new Location(2,1);
+        Location destinationLocation = new Location(2,5);
+        Square currentSquare = squares[2][1];
+        Square destinationSquare = squares[2][5];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
             @Override
             public List<Move> getMoves() {
@@ -149,13 +171,19 @@ public class BoardTest {
     @Test
     public void isLegal_validDiagonalMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(4,3);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Square currentSquare = squares[2][1];
+        Square destinationSquare = squares[4][3];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
             @Override
             public List<Move> getMoves() {
@@ -179,15 +207,19 @@ public class BoardTest {
     @Test
     public void isLegal_invalidDiagonalMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
-        Location currentLocation;
-        Location destinationLocation;
 
         //when
-        currentLocation = new Location(1,1);
-        destinationLocation = new Location(8,8);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Location currentLocation = new Location(0,0);
+        Location destinationLocation = new Location(7,7);
+        Square currentSquare = squares[0][0];
+        Square destinationSquare = squares[7][7];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
             @Override
             public List<Move> getMoves() {
@@ -211,13 +243,19 @@ public class BoardTest {
     @Test
     public void isLegal_validJumpMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(1,2);
         Location destinationLocation = new Location(3,1);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Square currentSquare = squares[1][2];
+        Square destinationSquare = squares[3][1];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
             @Override
             public List<Move> getMoves() {
@@ -241,20 +279,26 @@ public class BoardTest {
     @Test
     public void isLegal_invalidJumpMove(){
         //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(1,2);
         Location destinationLocation = new Location(2,4);
-        Square destinationSquare = new Square(destinationLocation);
-        Square currentSquare = new Square(currentLocation);
+        Square currentSquare = squares[1][2];
+        Square destinationSquare = squares[2][4];
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
             @Override
             public List<Move> getMoves() {
                 return null;
             }
         };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
+        AbstractPiece currentPiece = new AbstractPiece(currentLocation, PieceColor.White) {
             @Override
             public List<Move> getMoves() {
                 return null;
@@ -272,12 +316,10 @@ public class BoardTest {
     public void isLegal_invalidMoveOffBoard(){
         //given
         Board board = new Board();
-        Location currentLocation;
-        Location destinationLocation;
 
         //when
-        currentLocation = new Location(12,1);
-        destinationLocation = new Location(4,1);
+        Location currentLocation = new Location(12,1);
+        Location destinationLocation = new Location(4,1);
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
