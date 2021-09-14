@@ -5,8 +5,6 @@ import java.util.List;
 
 public class RookPiece extends AbstractPiece
 {
-    private Object Move;
-
     public RookPiece(Location location, PieceColor color)
     {
         super(location, color);
@@ -15,28 +13,28 @@ public class RookPiece extends AbstractPiece
     @Override
     public List<Move> getMoves()
     {
-        List<Move> List = new ArrayList<Move>();
+        List<Move> list = new ArrayList<>();
         Location curLocation = getLocation();
         //for every row on the board adding one to the original row placement
-        for(int row=0; row < 9; row++)
+        for(int row=0; row < 8; row++)
         {
-            Location newLoc = new Location(row, curLocation.getColumn());
+            Location newLocation = new Location(row, curLocation.getColumn());
             //check if the row and col are not the same as original location if not add new move to list
-                if (curLocation.getRow() != newLoc.getRow() || curLocation.getColumn() != newLoc.getColumn())
+                if (curLocation.getRow() != newLocation.getRow() || curLocation.getColumn() != newLocation.getColumn())
                 {
-                    List.add(new Move(curLocation, newLoc,false));
+                    list.add(new Move(curLocation, newLocation, false));
                 }
         }
         //for every col on the board adding one to the original col placement
-        for(int col=0; col < 9; col++)
+        for(int col=0; col < 8; col++)
         {
             Location newLoc = new Location(curLocation.getRow(), col);
             //check if the row and col are not the same as original location if not add new move to list
             if (curLocation.getRow() != newLoc.getRow() || curLocation.getColumn() != newLoc.getColumn())
             {
-                List.add(new Move(curLocation, newLoc,false));
+                list.add(new Move(curLocation, newLoc, false));
             }
         }
-        return List;
+        return list;
     }
 }

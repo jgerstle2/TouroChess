@@ -25,13 +25,13 @@ public class RookPieceTest
     public void getMoves88()
     {
         //given
-        RookPiece rook = new RookPiece(new Location(8,8), PieceColor.Black);
+        RookPiece rook = new RookPiece(new Location(7,7), PieceColor.Black);
         //when
         List<Move> list = rook.getMoves();
         //then
         for(Move move: list)
         {
-            assertTrue(move.getTo().getColumn()==0 || move.getTo().getRow()==0);
+            assertTrue(move.getTo().getColumn()==7 || move.getTo().getRow()==7);
         }
     }
     @Test
@@ -44,7 +44,7 @@ public class RookPieceTest
         //then
         for(Move move: list)
         {
-            assertTrue(move.getTo().getColumn()==0 || move.getTo().getRow()==0);
+            assertTrue(move.getTo().getColumn()==2 || move.getTo().getRow()==4);
         }
     }
 }
