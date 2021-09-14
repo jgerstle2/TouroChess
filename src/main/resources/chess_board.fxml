@@ -1,30 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.GridPane?>
 
-<?import javafx.scene.control.Label?>
-<?import java.util.ArrayList?>
-
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Button?>
-
-<?import javafx.scene.control.MenuBar?>
-<?import com.sun.javafx.scene.control.ContextMenuContent.ArrowMenuItem?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.TextArea?>
+<?import java.util.ArrayList?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:id="chessBoardView"
           stylesheets="@chess.css"
-          gridLinesVisible="false"
           maxHeight="-Infinity" maxWidth="-Infinity"
           minHeight="-Infinity" minWidth="-Infinity"
           prefHeight="800.0" prefWidth="800.0">
@@ -32,18 +15,11 @@
     <ToolBar GridPane.rowIndex="0" GridPane.columnSpan="12" GridPane.columnIndex="0">
         <HBox alignment="CENTER" spacing="2">
             <MenuBar fx:id="menuBar">
-                <menus>
-                    <Menu text="Game">
-                    </Menu>
-                    <Menu text="View">
-                    </Menu>
-                    <Menu text="Engines">
-                    </Menu>
-                    <Menu text="Window">
-                    </Menu>
-                    <Menu text="Help">
-                    </Menu>
-                </menus>
+                <Menu text="Game"/>
+                <Menu text="View"/>
+                <Menu text="Engines"/>
+                <Menu text="Window"/>
+                <Menu text="Help"/>
             </MenuBar>
         </HBox>
     </ToolBar>
@@ -198,8 +174,8 @@
             <TableColumn text="Black" fx:id="blackMove"/>
         </columns>
     </TableView>
-    <Text GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="3" text="Engine Debug"></Text>
-    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="10" GridPane.columnSpan="16"></TextArea>
+    <Text GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="3" text="Engine Debug" fx:id="title"/>
+    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="11" GridPane.columnSpan="16"/>
 
 </GridPane>
 
