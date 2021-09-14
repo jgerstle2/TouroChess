@@ -4,11 +4,18 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class BoardTest {
+
+    private final Square[][] squares = new Square[8][8];
+    private final Board board = new Board();
+
+    public void createSquares(){
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
+    }
 
     @BeforeClass
     public static void beforeClass() {
@@ -19,13 +26,7 @@ public class BoardTest {
     @Test
     public void isLegal_validVerticalMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(2,1);
@@ -43,13 +44,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidVerticalMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(2,1);
@@ -67,13 +62,7 @@ public class BoardTest {
     @Test
     public void isLegal_validHorizontalMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(4,1);
@@ -91,13 +80,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidHorizontalMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(2,1);
@@ -118,13 +101,7 @@ public class BoardTest {
     @Test
     public void isLegal_validDiagonalMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(2,1);
@@ -142,13 +119,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidDiagonalMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(0,0);
@@ -166,13 +137,7 @@ public class BoardTest {
     @Test
     public void isLegal_validJumpMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(1,2);
@@ -188,13 +153,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidJumpMove(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(1,2);
@@ -212,7 +171,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidMoveOffBoard(){
         //given
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(12,1);
@@ -226,7 +185,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidMoveNullPiece(){
         //given
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(2,1);
@@ -240,7 +199,7 @@ public class BoardTest {
     @Test
     public void isLegal_invalidMoveSameSquare(){
         //given
-        Board board = new Board();
+        createSquares();
 
         //when
         Location currentLocation = new Location(4,1);
@@ -250,4 +209,5 @@ public class BoardTest {
         //then
         Assert.assertFalse(board.isLegal(move));
     }
+
 }

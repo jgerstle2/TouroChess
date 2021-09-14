@@ -24,23 +24,25 @@ public class Board {
      * @return true if the Move is legal, otherwise false.
      */
     public boolean isLegal(Move move) {
-        Square currentSquare = squares[move.getFrom().getRow()][move.getFrom().getColumn()];
-        Square destinationSquare = squares[move.getTo().getRow()][move.getTo().getColumn()];
         int currentRow = move.getFrom().getRow();
         int currentColumn = move.getFrom().getColumn();
         int destinationRow = move.getTo().getRow();
         int destinationColumn = move.getTo().getColumn();
-        AbstractPiece currentPiece = currentSquare.getPiece();
-        AbstractPiece destinationPiece = destinationSquare.getPiece();
 
         if (currentColumn < 0 || currentColumn > 7
-            || currentRow < 0 || currentRow > 7
-            || destinationColumn < 0 || destinationColumn > 7
-            || destinationRow < 0 || destinationRow > 7)
+                || currentRow < 0 || currentRow > 7
+                || destinationColumn < 0 || destinationColumn > 7
+                || destinationRow < 0 || destinationRow > 7)
         {
             return false;
         }
-        else if (currentPiece == null){
+
+        Square currentSquare = squares[move.getFrom().getRow()][move.getFrom().getColumn()];
+        Square destinationSquare = squares[move.getTo().getRow()][move.getTo().getColumn()];
+        AbstractPiece currentPiece = currentSquare.getPiece();
+        AbstractPiece destinationPiece = destinationSquare.getPiece();
+
+        if (currentPiece == null){
             return false;
         }
         else if(move.getFrom() == move.getTo()){
