@@ -1,8 +1,8 @@
 Label {
     -fx-border: 1;
-    -fx-min-width: 75;
+    -fx-min-width: 70;
     -fx-text-alignment: center;
-    -fx-min-height: 75;
+    -fx-min-height: 70;
     -fx-border-color:black;
     -fx-border-style: solid;
     -fx-padding: 8 8 8 8;
@@ -18,54 +18,3 @@ Label.dark {
     -fx-background-color: #d18b47;
 }
 
-#light0, #dark7 {
-    -fx-background-image: url('images/b_rook.png');
-}
-#dark1, #light6 {
-    -fx-background-image: url('images/b_knight.png');
-}
-
-#light2, #dark5 {
-    -fx-background-image: url('images/b_bishop.png');
-}
-
-#dark3 {
-    -fx-background-image: url('images/b_queen.png');
-}
-
-#light4 {
-    -fx-background-image: url('images/b_king.png');
-}
-
-#dark8, #light9, #dark10, #light11, #dark12, #light13, #dark14, #light15 {
-    -fx-background-image: url('images/b_pawn.png');
-}
-
-#light48, #dark49, #light50, #dark51, #light52, #dark53, #light54, #dark55 {
-    -fx-background-image: url('images/w_pawn.png');
-}
-
-#dark56, #white63 {
-    -fx-background-image: url('images/w_rook.png');
-}
-
-#light57, #dark62 {
-    -fx-background-image: url('images/w_knight.png');
-}
-
-#dark58, #light61 {
-    -fx-background-image: url('images/w_bishop.png');
-}
-
-#light59 {
-    -fx-background-image: url('images/w_queen.png');
-}
-
-#dark60 {
-    -fx-background-image: url('images/w_king.png');
-}
-
-#light63 {
-    -fx-background-image: url('images/w_rook.png');
-
-}
