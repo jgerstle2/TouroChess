@@ -15,6 +15,12 @@ public class Move {
      */
     private final boolean captureOnly;
 
+    public Move(Location from,
+                Location to,
+                boolean jump) {
+        this(from, to, jump, false);
+    }
+
     public Move(
             Location from,
             Location to,
