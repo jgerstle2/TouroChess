@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,6 +15,9 @@ public class BoardTest {
         com.sun.javafx.application.PlatformImpl.startup(() -> {
         });
     }
+
+    //get the code for the pieces. create specific pieces that have a list of moves
+    //use these pieces in the tests instead of abstract pieces
 
     @Test
     public void isLegal_validVerticalMove(){
@@ -31,6 +35,9 @@ public class BoardTest {
         Location destinationLocation = new Location(4,1);
         Square currentSquare = squares[2][1];
         Square destinationSquare = squares[4][1];
+        ArrayList<Move> legalMoves = new ArrayList<>();
+        Move move = new Move(currentLocation,destinationLocation,false);
+        legalMoves.add(move);
         AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
             @Override
             public List<Move> getMoves() {
@@ -40,12 +47,11 @@ public class BoardTest {
         AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
             @Override
             public List<Move> getMoves() {
-                return null;
+                return legalMoves;
             }
         };
         currentSquare.setPiece(currentPiece);
         destinationSquare.setPiece(destinationPiece);
-        Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
         Assert.assertTrue(board.isLegal(move));
@@ -319,6 +325,48 @@ public class BoardTest {
 
         //when
         Location currentLocation = new Location(12,1);
+        Location destinationLocation = new Location(4,1);
+        Move move = new Move(currentLocation,destinationLocation,false);
+
+        //then
+        Assert.assertFalse(board.isLegal(move));
+    }
+
+    @Test
+    public void isLegal_invalidMoveNullPiece(){
+        //given
+        Square[][] squares = new Square[8][8];
+        for(int column = 0; column < 8; column++) {
+            for (int row = 0; row < 8; row++) {
+                squares[column][row] = new Square(new Location(row, column));
+            }
+        }
+        Board board = new Board();
+
+        //when
+        Location currentLocation = new Location(2,1);
+        Location destinationLocation = new Location(2,5);
+        Square destinationSquare = squares[2][5];
+        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
+            @Override
+            public List<Move> getMoves() {
+                return null;
+            }
+        };
+        destinationSquare.setPiece(destinationPiece);
+        Move move = new Move(currentLocation,destinationLocation,false);
+
+        //then
+        Assert.assertFalse(board.isLegal(move));
+    }
+
+    @Test
+    public void isLegal_invalidMoveSameSquare(){
+        //given
+        Board board = new Board();
+
+        //when
+        Location currentLocation = new Location(4,1);
         Location destinationLocation = new Location(4,1);
         Move move = new Move(currentLocation,destinationLocation,false);
 

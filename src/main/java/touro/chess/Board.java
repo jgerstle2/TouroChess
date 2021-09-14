@@ -1,7 +1,5 @@
 package touro.chess;
 
-import org.jetbrains.annotations.Nullable;
-
 public class Board {
 
     private static final int COLUMNS = 8;
@@ -25,7 +23,7 @@ public class Board {
      * @param move
      * @return true if the Move is legal, otherwise false.
      */
-    public boolean isLegal(Move move) throws NullPointerException, ArrayIndexOutOfBoundsException {
+    public boolean isLegal(Move move) {
         Square currentSquare = squares[move.getFrom().getRow()][move.getFrom().getColumn()];
         Square destinationSquare = squares[move.getTo().getRow()][move.getTo().getColumn()];
         int currentRow = move.getFrom().getRow();
@@ -35,7 +33,6 @@ public class Board {
         AbstractPiece currentPiece = currentSquare.getPiece();
         AbstractPiece destinationPiece = destinationSquare.getPiece();
 
-        //this checks if to or from is not on the board
         if (currentColumn < 0 || currentColumn > 7
             || currentRow < 0 || currentRow > 7
             || destinationColumn < 0 || destinationColumn > 7
@@ -43,118 +40,88 @@ public class Board {
         {
             return false;
         }
+        else if (currentPiece == null){
+            return false;
+        }
         else if(move.getFrom() == move.getTo()){
             return false;
         }
-        else if (destinationPiece != null && currentPiece != null) {
+        else if (destinationPiece != null) {
             if (destinationSquare.hasPiece() && destinationPiece.getColor().equals(currentPiece.getColor())) {
-                return false;   //returns false if destination has piece of same color
+                return false;
             }
         }
-        else {   //this runs if destination is empty or contains opposing color piece
+        else {   //if destination is empty or contains opposing color piece
             if (move.isJump()) {
                 return true;
             }
-            //if move is vertical
-            else if (currentColumn == destinationColumn) {
-                //if move is forward
-                if (currentRow < destinationRow) {
-                    //increment row, keep column
-                    for (int row = (currentRow + 1); row < (destinationRow + 1); row++) {
-                        currentSquare = squares[row][currentColumn];
-                        if (currentSquare.getPiece() != null) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-                //if move is backwards
-                else if (currentRow > destinationRow) {
-                    //decrement row, keep column
-                    for (int row = (currentRow - 1); row > (destinationRow - 1); row--) {
-                        currentSquare = squares[row][currentColumn];
-                        if (currentSquare.getPiece() != null) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-            }
-
-            //if move is horizontal
-            else if (currentRow == destinationRow) {
-                //if move is to the right
-                if (currentColumn < destinationColumn) {
-                    //increment column, keep row
-                    for (int col = (currentColumn + 1); col < (destinationColumn + 1); col++) {
-                        currentSquare = squares[currentRow][col];
-                        if (currentSquare.getPiece() != null) {
+            else if (currentColumn == destinationColumn) { //vertical
+                if (currentRow < destinationRow) { //forward
+                    for (int row = (currentRow + 1); row < destinationRow; row++) { //increment row, keep column
+                        if(squares[row][currentColumn].hasPiece()){
                             return false;
                         }
                     }
                 }
-                //if move is to the left
-                else {
-                    //decrement column, keep row
-                    for (int col = (currentColumn - 1); col > (destinationColumn - 1); col--) {
-                        currentSquare = squares[currentRow][col];
-                        if (currentSquare.getPiece() != null) {
+                else{ //backwards
+                    for (int row = (currentRow - 1); row > destinationRow; row--) { //decrement row, keep column
+                        if(squares[row][currentColumn].hasPiece()){
                             return false;
                         }
                     }
                 }
                 return true;
             }
-
-            //if move is diagonal
-            //if current.col - destination.col equals current.row - destination.row
-            else if ((currentColumn - destinationColumn) == (currentRow - destinationRow)) {
+            else if (currentRow == destinationRow) { //horizontal
+                if (currentColumn < destinationColumn) { //right
+                    for (int col = (currentColumn + 1); col < destinationColumn; col++) { //increment column, keep row
+                        if(squares[currentRow][col].hasPiece()){
+                            return false;
+                        }
+                    }
+                }
+                else { //left
+                    for (int col = (currentColumn - 1); col > destinationColumn; col--) { //decrement column, keep row
+                        if(squares[currentRow][col].hasPiece()){
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            else if ((currentColumn - destinationColumn) == (currentRow - destinationRow)) { //diagonal
                 int row = currentRow;
-                //if move is forward
-                if (currentRow < destinationRow) {
-                    //if move is to the right
-                    if (currentColumn < destinationColumn) {
-                        //increment row, increment column
-                        for (int col = (currentColumn + 1); col < (destinationColumn + 1); col++) {
+                if (currentRow < destinationRow) { //forward
+                    if (currentColumn < destinationColumn) { //right
+                        for (int col = (currentColumn + 1); col < destinationColumn; col++) { //increment row, increment column
                             row++;
-                            currentSquare = squares[row][col];
-                            if (currentSquare.getPiece() != null) {
+                            if(squares[row][col].hasPiece()){
                                 return false;
                             }
                         }
                     }
-                    //if move is to the left
-                    else {
-                        //increment row, decrement column
-                        for (int col = (currentColumn - 1); col > (destinationColumn - 1); col--) {
+                    else { //left
+                        for (int col = (currentColumn - 1); col > destinationColumn; col--) { //increment row, decrement column
                             row++;
-                            currentSquare = squares[row][col];
-                            if (currentSquare.getPiece() != null) {
+                            if(squares[row][col].hasPiece()){
                                 return false;
                             }
                         }
                     }
                 }
-                //if move is backward
-                else {
-                    //if move is to the right
-                    if (currentColumn < destinationColumn) {
-                        //decrement row, increment column
-                        for (int col = (currentColumn + 1); col < (destinationColumn + 1); col++) {
+                else { //backward
+                    if (currentColumn < destinationColumn) { //right
+                        for (int col = (currentColumn + 1); col < destinationColumn; col++) { //decrement row, increment column
                             row--;
-                            currentSquare = squares[row][col];
-                            if (currentSquare.getPiece() != null) {
+                            if(squares[row][col].hasPiece()){
                                 return false;
                             }
                         }
                     }
-                    //if move is to the left
-                    else {
-                        //decrement row, decrement column
-                        for (int col = (currentColumn - 1); col > (destinationColumn - 1); col--) {
+                    else { //left
+                        for (int col = (currentColumn - 1); col > destinationColumn; col--) { //decrement row, decrement column
                             row--;
-                            currentSquare = squares[row][col];
-                            if (currentSquare.getPiece() != null) {
+                            if(squares[row][col].hasPiece()){
                                 return false;
                             }
                         }
