@@ -43,8 +43,9 @@ public class ChessController {
         squares.get(63).setStyle("-fx-background-image: url(\"/images/w_rook.png\");");
     }
 
-    private void updateImage(){
-
+    private void updateImage(char color, int originSquare, int destinationSquare, String piece){
+        squares.get(destinationSquare).setStyle("-fx-background-image: url(\"/images/"+color+"_"+piece+".png\");");
+        squares.get(originSquare).setStyle("-fx-background-image:");
     }
 
 
