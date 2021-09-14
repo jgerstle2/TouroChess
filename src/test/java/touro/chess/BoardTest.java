@@ -16,9 +16,6 @@ public class BoardTest {
         });
     }
 
-    //get the code for the pieces. create specific pieces that have a list of moves
-    //use these pieces in the tests instead of abstract pieces
-
     @Test
     public void isLegal_validVerticalMove(){
         //given
@@ -35,23 +32,9 @@ public class BoardTest {
         Location destinationLocation = new Location(4,1);
         Square currentSquare = squares[2][1];
         Square destinationSquare = squares[4][1];
-        ArrayList<Move> legalMoves = new ArrayList<>();
         Move move = new Move(currentLocation,destinationLocation,false);
-        legalMoves.add(move);
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return legalMoves;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new RookPiece(currentLocation, PieceColor.White));
+        destinationSquare.setPiece(new RookPiece(destinationLocation, PieceColor.Black));
 
         //then
         Assert.assertTrue(board.isLegal(move));
@@ -71,31 +54,10 @@ public class BoardTest {
         //when
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(4,1);
-        Location middleLocation = new Location(3,1);
         Square currentSquare = squares[2][1];
         Square destinationSquare = squares[4][1];
-        Square middleSquare = squares[3][1];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece middlePiece = new AbstractPiece(middleLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        middleSquare.setPiece(middlePiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new RookPiece(currentLocation, PieceColor.White));
+        destinationSquare.setPiece(new RookPiece(destinationLocation, PieceColor.White));
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
@@ -118,20 +80,8 @@ public class BoardTest {
         Location destinationLocation = new Location(4,6);
         Square currentSquare = squares[4][1];
         Square destinationSquare = squares[4][6];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new RookPiece(currentLocation, PieceColor.White));
+        destinationSquare.setPiece(new RookPiece(destinationLocation, PieceColor.Black));
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
@@ -152,22 +102,13 @@ public class BoardTest {
         //when
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(2,5);
+        Location middleLocation = new Location(2,4);
         Square currentSquare = squares[2][1];
         Square destinationSquare = squares[2][5];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        Square middleSquare = squares[2][4];
+        currentSquare.setPiece(new RookPiece(currentLocation, PieceColor.White));
+        middleSquare.setPiece(new BishopPiece(middleLocation, PieceColor.Black));
+        destinationSquare.setPiece(new RookPiece(destinationLocation, PieceColor.Black));
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
@@ -190,20 +131,8 @@ public class BoardTest {
         Location destinationLocation = new Location(4,3);
         Square currentSquare = squares[2][1];
         Square destinationSquare = squares[4][3];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new QueenPiece(currentLocation, PieceColor.White));
+        destinationSquare.setPiece(new PawnPiece(destinationLocation, PieceColor.Black));
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
@@ -226,20 +155,8 @@ public class BoardTest {
         Location destinationLocation = new Location(7,7);
         Square currentSquare = squares[0][0];
         Square destinationSquare = squares[7][7];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new QueenPiece(currentLocation, PieceColor.White));
+        destinationSquare.setPiece(new RookPiece(destinationLocation, PieceColor.White));
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
@@ -261,21 +178,7 @@ public class BoardTest {
         Location currentLocation = new Location(1,2);
         Location destinationLocation = new Location(3,1);
         Square currentSquare = squares[1][2];
-        Square destinationSquare = squares[3][1];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.Black) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new KnightPiece(currentLocation, PieceColor.White));
         Move move = new Move(currentLocation,destinationLocation,true);
 
         //then
@@ -298,20 +201,8 @@ public class BoardTest {
         Location destinationLocation = new Location(2,4);
         Square currentSquare = squares[1][2];
         Square destinationSquare = squares[2][4];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        AbstractPiece currentPiece = new AbstractPiece(currentLocation, PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        currentSquare.setPiece(currentPiece);
-        destinationSquare.setPiece(destinationPiece);
+        currentSquare.setPiece(new KnightPiece(currentLocation, PieceColor.White));
+        destinationSquare.setPiece(new RookPiece(destinationLocation, PieceColor.White));
         Move move = new Move(currentLocation,destinationLocation,true);
 
         //then
@@ -335,25 +226,11 @@ public class BoardTest {
     @Test
     public void isLegal_invalidMoveNullPiece(){
         //given
-        Square[][] squares = new Square[8][8];
-        for(int column = 0; column < 8; column++) {
-            for (int row = 0; row < 8; row++) {
-                squares[column][row] = new Square(new Location(row, column));
-            }
-        }
         Board board = new Board();
 
         //when
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(2,5);
-        Square destinationSquare = squares[2][5];
-        AbstractPiece destinationPiece = new AbstractPiece(destinationLocation,PieceColor.White) {
-            @Override
-            public List<Move> getMoves() {
-                return null;
-            }
-        };
-        destinationSquare.setPiece(destinationPiece);
         Move move = new Move(currentLocation,destinationLocation,false);
 
         //then
