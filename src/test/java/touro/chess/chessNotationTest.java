@@ -7,10 +7,6 @@ import static org.junit.Assert.*;
 
 public class chessNotationTest {
 
-    @After
-    public void tearDown() throws Exception {
-    }
-
     @Test
     public void toChessNotation() {
         Location loc = new Location(1,5);
