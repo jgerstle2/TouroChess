@@ -18,7 +18,7 @@ Andrew Schwimmer
 - RookPiece + tests
 - BishopPiece + tests
 - KnightPiece + tests
-- touro.chess.PawnPiece + tests (no en-pessent)
+- PawnPiece + tests (no en-pessent)
 - board.xml
   - Shows images of Pieces
   - images from https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces

@@ -64,15 +64,17 @@ public class PawnPiece extends AbstractPiece {
             if (row != 0) {
                 moves.add(new Move(location, new Location(row - 1, col), false, false));
 
+                //move to the right
+                if (col != 0) {
+                    moves.add(new Move(location, new Location(row - 1, col - 1), false, true));
+                }
+
                 //move to the left
                 if (col != 7) {
                     moves.add(new Move(location, new Location(row - 1, col + 1), false, true));
                 }
 
-                //move to the right
-                if (col != 0) {
-                    moves.add(new Move(location, new Location(row - 1, col - 1), false, true));
-                }
+
             }
 
 
