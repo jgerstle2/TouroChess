@@ -18,36 +18,36 @@ public class BishopPiece extends AbstractPiece
 //        int col = this.getLocation().getColumn();
 
         //Possible moves to the upper left
-        for(int row = this.getLocation().getRow(), col = this.getLocation().getColumn();
-            col >= 1; row--, col--)
+        for(int row = (this.getLocation().getRow()) - 1, col = (this.getLocation().getColumn()) - 1;
+            col >= 1 && row >= 1; row--, col--)
         {
             Location newLocation = new Location(row, col);
             moves.add(new Move(this.getLocation(), newLocation, false));
         }
 
-//        //Possible moves to the lower left
-//        for(int row = this.getLocation().getRow(), col = this.getLocation().getColumn();
-//            col >= 1; row++, col--)
-//        {
-//            Location newLocation = new Location(row, col);
-//            moves.add(new Move(this.getLocation(), newLocation, false));
-//        }
-//
-//        //Possible moves to the upper right
-//        for(int row = this.getLocation().getRow(), col = this.getLocation().getColumn();
-//            col <= 8; row--, col++)
-//        {
-//            Location newLocation = new Location(row, col);
-//            moves.add(new Move(this.getLocation(), newLocation, false));
-//        }
-//
-//        //Possible moves to the lower right
-//        for(int row = this.getLocation().getRow(), col = this.getLocation().getColumn();
-//            col <= 8; row++, col++)
-//        {
-//            Location newLocation = new Location(row, col);
-//            moves.add(new Move(this.getLocation(), newLocation, false));
-//        }
+        //Possible moves to the lower left
+        for(int row = (this.getLocation().getRow()) + 1, col = (this.getLocation().getColumn()) - 1;
+            col >= 1 && row <= 8; row++, col--)
+        {
+            Location newLocation = new Location(row, col);
+            moves.add(new Move(this.getLocation(), newLocation, false));
+        }
+
+        //Possible moves to the upper right
+        for(int row = (this.getLocation().getRow()) - 1, col = (this.getLocation().getColumn()) + 1;
+            col <= 8 && row >= 1; row--, col++)
+        {
+            Location newLocation = new Location(row, col);
+            moves.add(new Move(this.getLocation(), newLocation, false));
+        }
+
+        //Possible moves to the lower right
+        for(int row = (this.getLocation().getRow()) + 1, col = (this.getLocation().getColumn()) + 1;
+            col <= 8 && row <= 8; row++, col++)
+        {
+            Location newLocation = new Location(row, col);
+            moves.add(new Move(this.getLocation(), newLocation, false));
+        }
         return moves;
     }
 }
