@@ -198,8 +198,8 @@
             <TableColumn text="Black" fx:id="blackMove"/>
         </columns>
     </TableView>
-<!--    <Text GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="2" text="Engine Debug"></Text>-->
-<!--    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="10" GridPane.columnSpan="13"></TextArea>-->
+    <Text GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="3" text="Engine Debug"></Text>
+    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="10" GridPane.columnSpan="16"></TextArea>
 
 </GridPane>
 
