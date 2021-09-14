@@ -11,56 +11,57 @@ public class QueenPiece extends AbstractPiece{
 
     @Override
     public List<Move> getMoves() {
+        List<Move> moveList = new ArrayList<>();
         Location currentLocation = this.getLocation();
         int row = currentLocation.getRow();
         int col = currentLocation.getColumn();
-        List<Move> moveList = new ArrayList<>();
+        int newCol;
+        int newRow;
 
         //horizontal moves:
-        for (int x = 1; x <= 8; x++){
-            moveList.add(new Move(currentLocation, new Location(row,x),false));
+        for (newCol = 1; newCol <= 8; newCol++){
+            moveList.add(new Move(currentLocation, new Location(row, newCol),false));
         }
         //vertical moves:
-        for (int y = 1; y <= 8; y++){
-            moveList.add(new Move(currentLocation, new Location(y,col), false));
+        for (newRow = 1; newRow <= 8; newRow++){
+            moveList.add(new Move(currentLocation, new Location(newRow, col), false));
         }
 
         //diagonal moves:
-        int x, y;
         //up & right
-        x = col +1;
-        y = row +1;
-        while(x < 9 && y < 9 ){
-            moveList.add(new Move(currentLocation, new Location(y,x),false));
-            x++;
-            y++;
+        newCol = col +1;
+        newRow = row +1;
+        while(newCol < 9 && newRow < 9 ){
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            newCol++;
+            newRow++;
         }
 
         //down & left
-        x = col-1;
-        y = row-1;
-        while(x > 0 && y > 0 ){
-            moveList.add(new Move(currentLocation, new Location(y,x),false));
-            x--;
-            y--;
+        newCol = col-1;
+        newRow = row-1;
+        while(newCol > 0 && newRow > 0 ){
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            newCol--;
+            newRow--;
         }
 
         //up & left
-        x = col-1;
-        y = row+1;
-        while(x > 0 && y < 9 ){
-            moveList.add(new Move(currentLocation, new Location(y,x),false));
-            x--;
-            y++;
+        newCol = col-1;
+        newRow = row+1;
+        while(newCol > 0 && newRow < 9 ){
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            newCol--;
+            newRow++;
         }
 
         //down & right
-        x = col+1;
-        y = row-1;
-        while(x < 9 && y > 0 ){
-            moveList.add(new Move(currentLocation, new Location(y,x),false));
-            x++;
-            y--;
+        newCol = col+1;
+        newRow = row-1;
+        while(newCol < 9 && newRow > 0 ){
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            newCol++;
+            newRow--;
         }
 
         //ensure that all moves in list are legal?
