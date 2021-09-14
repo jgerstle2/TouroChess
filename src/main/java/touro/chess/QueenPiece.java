@@ -18,11 +18,11 @@ public class QueenPiece extends AbstractPiece{
 
         //horizontal moves:
         for (int x = 1; x <= 8; x++){
-            moveList.add(new Move(currentLocation, new Location(x,row),false));
+            moveList.add(new Move(currentLocation, new Location(row,x),false));
         }
         //vertical moves:
         for (int y = 1; y <= 8; y++){
-            moveList.add(new Move(currentLocation, new Location(col,y), false));
+            moveList.add(new Move(currentLocation, new Location(y,col), false));
         }
 
         //diagonal moves:
@@ -31,7 +31,7 @@ public class QueenPiece extends AbstractPiece{
         x = col +1;
         y = row +1;
         while(x < 9 && y < 9 ){
-            moveList.add(new Move(currentLocation, new Location(x,y),false));
+            moveList.add(new Move(currentLocation, new Location(y,x),false));
             x++;
             y++;
         }
@@ -40,7 +40,7 @@ public class QueenPiece extends AbstractPiece{
         x = col-1;
         y = row-1;
         while(x > 0 && y > 0 ){
-            moveList.add(new Move(currentLocation, new Location(x,y),false));
+            moveList.add(new Move(currentLocation, new Location(y,x),false));
             x--;
             y--;
         }
@@ -49,7 +49,7 @@ public class QueenPiece extends AbstractPiece{
         x = col-1;
         y = row+1;
         while(x > 0 && y < 9 ){
-            moveList.add(new Move(currentLocation, new Location(x,y),false));
+            moveList.add(new Move(currentLocation, new Location(y,x),false));
             x--;
             y++;
         }
@@ -58,7 +58,7 @@ public class QueenPiece extends AbstractPiece{
         x = col+1;
         y = row-1;
         while(x < 9 && y > 0 ){
-            moveList.add(new Move(currentLocation, new Location(x,y),false));
+            moveList.add(new Move(currentLocation, new Location(y,x),false));
             x++;
             y--;
         }
