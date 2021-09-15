@@ -44,7 +44,7 @@ public class RookPieceTest
         //then
         for(Move move: list)
         {
-            assertTrue(move.getTo().getColumn()==2 || move.getTo().getRow()==4);
+            assertTrue(move.getTo().getRow()==2 || move.getTo().getColumn()==4);
         }
     }
 }
