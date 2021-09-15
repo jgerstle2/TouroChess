@@ -10,13 +10,26 @@ public class Move {
      */
     private final boolean jump;
 
+    /**
+     * Specifies that this move can only be done to capture another piece (Pawn moving diagonally)
+     */
+    private final boolean captureOnly;
+
+    public Move(Location from,
+                Location to,
+                boolean jump) {
+        this(from, to, jump, false);
+    }
+
     public Move(
             Location from,
             Location to,
-            boolean jump) {
+            boolean jump,
+            boolean captureOnly) {
         this.from = from;
         this.to = to;
         this.jump = jump;
+        this.captureOnly = captureOnly;
     }
 
     public Location getFrom() {
@@ -31,12 +44,17 @@ public class Move {
         return jump;
     }
 
+    public boolean isCaptureOnly() {
+        return captureOnly;
+    }
+
     @Override
     public String toString() {
         return "Move{" +
                 "from=" + from +
                 ", to=" + to +
                 ", jump=" + jump +
+                ", captureOnly=" + captureOnly +
                 '}';
     }
 }
