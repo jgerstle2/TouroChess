@@ -18,6 +18,19 @@ public class Board {
         }
     }
 
+    public Square getSquare(Location location){
+        return squares[location.getRow()][location.getColumn()];
+    }
+
+    public boolean isOnBoard(Move move){
+        return isOnBoard(move.getFrom()) && isOnBoard(move.getTo());
+    }
+
+    public boolean isOnBoard(Location location){
+        return location.getRow() > -1 && location.getRow() < 8
+                && location.getColumn() > 0 && location.getColumn() < 8;
+    }
+
     /**
      * Verify that a Move is legal on this Board.
      * @param move
@@ -29,16 +42,13 @@ public class Board {
         int destinationRow = move.getTo().getRow();
         int destinationColumn = move.getTo().getColumn();
 
-        if (currentColumn < 0 || currentColumn > 7
-                || currentRow < 0 || currentRow > 7
-                || destinationColumn < 0 || destinationColumn > 7
-                || destinationRow < 0 || destinationRow > 7)
+        if (!isOnBoard(move))
         {
             return false;
         }
 
-        Square currentSquare = squares[move.getFrom().getRow()][move.getFrom().getColumn()];
-        Square destinationSquare = squares[move.getTo().getRow()][move.getTo().getColumn()];
+        Square currentSquare = getSquare(move.getFrom());
+        Square destinationSquare = getSquare(move.getTo());
         AbstractPiece currentPiece = currentSquare.getPiece();
         AbstractPiece destinationPiece = destinationSquare.getPiece();
 
@@ -49,7 +59,7 @@ public class Board {
             return false;
         }
         else if (destinationPiece != null) {
-            if (destinationSquare.hasPiece() && destinationPiece.getColor().equals(currentPiece.getColor())) {
+            if (destinationSquare.hasPiece() && destinationPiece.getColor() == currentPiece.getColor()) {
                 return false;
             }
         }
