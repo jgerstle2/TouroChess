@@ -22,8 +22,7 @@ public class PawnPiece extends AbstractPiece {
 
         List<Move> moves = new ArrayList<Move>();
 
-        if (super.getColor().toString().equals("Black")) {
-
+        if (getColor() == PieceColor.Black) {
             //assuming black starts at row 1 (assuming rows and col are from 0-7)
             //add 1,0 1,1 1,-1 and for row 1 or 6 add 2,0
 
@@ -34,9 +33,7 @@ public class PawnPiece extends AbstractPiece {
 
             //move forward one
             if (row != 7) {
-
                 moves.add(new Move(location, new Location(row + 1, col), false, false));
-
 
                 //move to the left
                 if (col != 7) {
@@ -49,11 +46,9 @@ public class PawnPiece extends AbstractPiece {
                 }
             }
 
-        } else if (super.getColor().toString().equals("White")) {
-
+        } else if (getColor() == PieceColor.White) {
             //assuming white starts at row 6 (assuming rows and col are from 0-7)
             //add -1,0 -1,-1 -1,+1 and for row 1 or 6 add -2,0
-
 
             //if this is first move
             if (row == 6) {
@@ -73,13 +68,8 @@ public class PawnPiece extends AbstractPiece {
                 if (col != 7) {
                     moves.add(new Move(location, new Location(row - 1, col + 1), false, true));
                 }
-
-
             }
-
-
         }
-
         return moves;
     }
 }
