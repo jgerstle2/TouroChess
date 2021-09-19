@@ -14,39 +14,35 @@ public class BishopPiece extends AbstractPiece
     public List<Move> getMoves()
     {
         List<Move> moves = new ArrayList<>();
-//        int row = this.getLocation().getRow();
-//        int col = this.getLocation().getColumn();
+        int currentRow = this.getLocation().getRow();
+        int currentCol = this.getLocation().getColumn();
 
         //Possible moves to the upper left
-        for(int row = (this.getLocation().getRow()) - 1, col = (this.getLocation().getColumn()) - 1;
+        for(int row = (currentRow) - 1, col = (currentCol) - 1;
             col >= 1 && row >= 1; row--, col--)
         {
-            Location newLocation = new Location(row, col);
-            moves.add(new Move(this.getLocation(), newLocation, false));
+            moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
 
         //Possible moves to the lower left
-        for(int row = (this.getLocation().getRow()) + 1, col = (this.getLocation().getColumn()) - 1;
+        for(int row = (currentRow) + 1, col = (currentCol) - 1;
             col >= 1 && row <= 8; row++, col--)
         {
-            Location newLocation = new Location(row, col);
-            moves.add(new Move(this.getLocation(), newLocation, false));
+            moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
 
         //Possible moves to the upper right
-        for(int row = (this.getLocation().getRow()) - 1, col = (this.getLocation().getColumn()) + 1;
+        for(int row = (currentRow) - 1, col = (currentCol) + 1;
             col <= 8 && row >= 1; row--, col++)
         {
-            Location newLocation = new Location(row, col);
-            moves.add(new Move(this.getLocation(), newLocation, false));
+            moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
 
         //Possible moves to the lower right
-        for(int row = (this.getLocation().getRow()) + 1, col = (this.getLocation().getColumn()) + 1;
+        for(int row = (currentRow) + 1, col = (currentCol) + 1;
             col <= 8 && row <= 8; row++, col++)
         {
-            Location newLocation = new Location(row, col);
-            moves.add(new Move(this.getLocation(), newLocation, false));
+            moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
         return moves;
     }
