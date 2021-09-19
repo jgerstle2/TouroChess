@@ -19,28 +19,28 @@ public class BishopPiece extends AbstractPiece
 
         //Possible moves to the upper left
         for(int row = (currentRow) - 1, col = (currentCol) - 1;
-            col >= 1 && row >= 1; row--, col--)
+            col >= 0 && row >= 0; row--, col--)
         {
             moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
 
         //Possible moves to the lower left
         for(int row = (currentRow) + 1, col = (currentCol) - 1;
-            col >= 1 && row <= 8; row++, col--)
+            col >= 0 && row <= 7; row++, col--)
         {
             moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
 
         //Possible moves to the upper right
         for(int row = (currentRow) - 1, col = (currentCol) + 1;
-            col <= 8 && row >= 1; row--, col++)
+            col <= 7 && row >= 0; row--, col++)
         {
             moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
 
         //Possible moves to the lower right
         for(int row = (currentRow) + 1, col = (currentCol) + 1;
-            col <= 8 && row <= 8; row++, col++)
+            col <= 7 && row <= 7; row++, col++)
         {
             moves.add(new Move(this.getLocation(), new Location(row, col), false));
         }
