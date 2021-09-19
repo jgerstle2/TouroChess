@@ -1,5 +1,5 @@
 package touro.chess;
-
+/**
 import org.jetbrains.annotations.Nullable;
 
 public class Square {
@@ -27,3 +27,4 @@ public class Square {
         return piece != null;
     }
 }
+**/

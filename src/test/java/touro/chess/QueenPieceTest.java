@@ -7,23 +7,23 @@ import static org.junit.Assert.assertEquals;
 
 public class QueenPieceTest {
     @Test
-    public void testGetMoves() {
+    public void getMoves() {
         //given
-        Location startLocation = new Location(3, 2);
+        Location startLocation = new Location(2, 1);
         QueenPiece queenPiece = new QueenPiece(startLocation, PieceColor.White);
         List<Move> expectedMoveList = new ArrayList<>();
-        expectedMoveList.add(new Move(startLocation, new Location(3,1),false)); //expected horizontal move
-        expectedMoveList.add(new Move(startLocation, new Location(1,2),false)); //expected vertical move
-        expectedMoveList.add(new Move(startLocation, new Location(4,3),false)); //expected diagonal up & right
-        expectedMoveList.add(new Move(startLocation, new Location(2,1),false)); //expected diagonal down & left
-        expectedMoveList.add(new Move(startLocation, new Location(4,1),false)); //expected diagonal up & left
-        expectedMoveList.add(new Move(startLocation, new Location(2,3),false)); //expected diagonal down & right
+        expectedMoveList.add(new Move(startLocation, new Location(2,0),false)); //expected horizontal move
+        expectedMoveList.add(new Move(startLocation, new Location(0,1),false)); //expected vertical move
+        expectedMoveList.add(new Move(startLocation, new Location(3,2),false)); //expected diagonal up & right
+        expectedMoveList.add(new Move(startLocation, new Location(1,0),false)); //expected diagonal down & left
+        expectedMoveList.add(new Move(startLocation, new Location(3,0),false)); //expected diagonal up & left
+        expectedMoveList.add(new Move(startLocation, new Location(1,2),false)); //expected diagonal down & right
 
         //when
         List<Move> moveList = queenPiece.getMoves();
 
         //then
-        // check horizontal
+        //check horizontal
         assertEquals(moveList.get(0).getTo().getColumn(),expectedMoveList.get(0).getTo().getColumn());
         assertEquals(moveList.get(0).getTo().getRow(),expectedMoveList.get(0).getTo().getRow());
         //check vertical
@@ -41,5 +41,5 @@ public class QueenPieceTest {
         //check down&right
         assertEquals(moveList.get(23).getTo().getColumn(),expectedMoveList.get(5).getTo().getColumn());
         assertEquals(moveList.get(23).getTo().getRow(),expectedMoveList.get(5).getTo().getRow());
-    }
+     }
 }
