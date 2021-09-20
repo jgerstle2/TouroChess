@@ -15,26 +15,27 @@ public class KingPiece extends AbstractPiece{
         int currentRow = currentLocation.getRow();
         int currentColumn = currentLocation.getColumn();
 
-        //all possible new locations
-        List<Location> possibleLocations = Arrays.asList(
-                new Location(currentRow + 1, currentColumn),
-                new Location(currentRow - 1, currentColumn),
-                new Location(currentRow,currentColumn + 1),
-                new Location(currentRow, currentColumn - 1),
-                new Location(currentRow + 1, currentColumn -1),
-                new Location(currentRow -1, currentColumn -1),
-                new Location(currentRow + 1, currentColumn + 1),
-                new Location(currentRow -1, currentColumn + 1)
-        );
-        //check if the moves in possibleLocations are legal and then return list of all legal moves
+        //all possible locations
+        Location east = new Location(currentRow + 1, currentColumn);
+        Location west = new Location(currentRow - 1, currentColumn);
+        Location north = new Location(currentRow, currentColumn + 1);
+        Location south = new Location(currentRow, currentColumn - 1);
+        Location southEast = new Location(currentRow + 1, currentColumn -1);
+        Location southWest = new Location(currentRow - 1, currentColumn -1);
+        Location northEast = new Location(currentRow + 1, currentColumn + 1);
+        Location northWest = new Location(currentRow - 1, currentColumn + 1);
+
+        //list of all legal moves with all the locations
         ArrayList<Move> legalMoves = new ArrayList<>();
-        for (Location newLocation : possibleLocations){
-            Move newMove = new Move(currentLocation,newLocation,false);
-            Board board = new Board();
-            if (board.isLegal(newMove)){
-                legalMoves.add(newMove);
-            }
-        }
+        legalMoves.add(new Move(currentLocation, east, false));
+        legalMoves.add(new Move(currentLocation, west, false));
+        legalMoves.add(new Move(currentLocation, north, false));
+        legalMoves.add(new Move(currentLocation, south, false));
+        legalMoves.add(new Move(currentLocation, southEast, false));
+        legalMoves.add(new Move(currentLocation, southWest, false));
+        legalMoves.add(new Move(currentLocation, northEast, false));
+        legalMoves.add(new Move(currentLocation, northWest, false));
+
         return legalMoves;
     }
 }
