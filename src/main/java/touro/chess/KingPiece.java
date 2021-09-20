@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class kingPiece extends AbstractPiece{
-    public kingPiece(Location location, PieceColor color) {
+public class KingPiece extends AbstractPiece{
+    public KingPiece(Location location, PieceColor color) {
         super(location, color);
     }
 

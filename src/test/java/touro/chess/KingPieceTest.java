@@ -1,20 +1,19 @@
 package touro.chess;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class kingPieceTest {
+public class KingPieceTest {
 
     @Test
     public void getMoves() {
         //given
         Location startPosition = new Location(4,4);
-        kingPiece king = new kingPiece(startPosition, PieceColor.Black);
+        KingPiece king = new KingPiece(startPosition, PieceColor.Black);
         List<Move>practiceList = new ArrayList<>();
         practiceList.add(new Move(startPosition,new Location(3,3),false));
         practiceList.add(new Move(startPosition,new Location(4,3),false));
