@@ -55,12 +55,12 @@ public class PawnPieceTest {
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(4, 4).toString(), secLocation.toString());
+        assertEquals(new Location(4, 6).toString(), secLocation.toString());
 
         //third move on list
         Location thirdLocation = moves.get(2).getTo();
 
-        assertEquals(new Location(4, 6).toString(), thirdLocation.toString());
+        assertEquals(new Location(4, 4).toString(), thirdLocation.toString());
     }
 
     @Test
@@ -124,12 +124,12 @@ public class PawnPieceTest {
         //third move on list
         Location thirdLocation = moves.get(2).getTo();
 
-        assertEquals(new Location(5, 4).toString(), thirdLocation.toString());
+        assertEquals(new Location(5, 6).toString(), thirdLocation.toString());
 
         //fourth move on list
         Location fourthLocation = moves.get(3).getTo();
 
-        assertEquals(new Location(5, 6).toString(), fourthLocation.toString());
+        assertEquals(new Location(5, 4).toString(), fourthLocation.toString());
     }
 
     @Test

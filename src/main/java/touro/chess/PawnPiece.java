@@ -22,57 +22,41 @@ public class PawnPiece extends AbstractPiece {
 
         List<Move> moves = new ArrayList<Move>();
 
-        int movement = 1;
-        int firstMovement;
+        int movement;
         int startingRow;
+        int neverRow;
 
+        // Black movement = 1, white = -1
+        //starting row black = 1 and white = 6
+        //Black can never be in row 7 and white can never be in row 0
 
         if (getColor() == PieceColor.Black) {
-            //assuming black starts at row 1 (assuming rows and col are from 0-7)
-            //add 1,0 1,1 1,-1 and for row 1 or 6 add 2,0
+            movement = 1;
             startingRow = 1;
-
-            //if this is first move
-            if (row == startingRow) {
-                firstMovement = 2;
-                moves.add(new Move(location, new Location(row + firstMovement, col), false, false));
-            }
-
-            //move forward
-            if (row != 7) {
-                moves.add(new Move(location, new Location(row + movement, col), false, false));
-
-                //move to the left
-                if (col != 7) {
-                    moves.add(new Move(location, new Location(row + movement, col + movement), false, true));
-                }
-
-                //move to the right
-                if (col != 0) {
-                    moves.add(new Move(location, new Location(row + movement, col - movement), false, true));
-                }
-            }
+            neverRow = 7;
         } else {
+            movement = -1;
             startingRow = 6;
+            neverRow = 0;
+        }
 
-            //if this is first move
-            if (row == startingRow) {
-                firstMovement = -2;
-                moves.add(new Move(location, new Location(row + firstMovement, col), false, false));
+        //if this is first move
+        if (row == startingRow) {
+            moves.add(new Move(location, new Location(row + movement + movement, col), false, false));
+        }
+
+        //move forward
+        if (row != neverRow) {
+            moves.add(new Move(location, new Location(row + movement, col), false, false));
+
+            //move to the left
+            if (col != 7) {
+                moves.add(new Move(location, new Location(row + movement, col + 1), false, true));
             }
 
-            if (row != 0) {
-                moves.add(new Move(location, new Location(row - movement, col), false, false));
-
-                //move to the right
-                if (col != 0) {
-                    moves.add(new Move(location, new Location(row - movement, col - movement), false, true));
-                }
-
-                //move to the left
-                if (col != 7) {
-                    moves.add(new Move(location, new Location(row - movement, col + movement), false, true));
-                }
+            //move to the right
+            if (col != 0) {
+                moves.add(new Move(location, new Location(row + movement, col - 1), false, true));
             }
         }
         return moves;
