@@ -12,18 +12,6 @@
           minHeight="-Infinity" minWidth="-Infinity"
           prefHeight="800.0" prefWidth="800.0">
 
-    <ToolBar GridPane.rowIndex="0" GridPane.columnSpan="12" GridPane.columnIndex="0">
-        <HBox alignment="CENTER" spacing="2">
-            <MenuBar fx:id="menuBar">
-                <Menu text="Game"/>
-                <Menu text="View"/>
-                <Menu text="Engines"/>
-                <Menu text="Window"/>
-                <Menu text="Help"/>
-            </MenuBar>
-        </HBox>
-    </ToolBar>
-
     <Label fx:id="square0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
     <Label fx:id="square1" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
     <Label fx:id="square2" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
@@ -165,17 +153,6 @@
             <fx:reference source="square63" styleClass="light"/>
         </ArrayList>
     </fx:define>
-
-    <TableView fx:id="tableView" GridPane.columnIndex="9" GridPane.rowIndex="1"
-               GridPane.rowSpan="8" GridPane.columnSpan="5">
-        <columns>
-            <TableColumn text="#" fx:id="numberMove"/>
-            <TableColumn text="White" fx:id="whiteMove"/>
-            <TableColumn text="Black" fx:id="blackMove"/>
-        </columns>
-    </TableView>
-    <Text GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="3" text="Engine Debug" fx:id="title"/>
-    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="11" GridPane.columnSpan="16"/>
 
 </GridPane>
 
