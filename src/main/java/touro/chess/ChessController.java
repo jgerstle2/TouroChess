@@ -42,7 +42,7 @@ public class ChessController {
         squares.get(63).getStyleClass().add("WhiteRook");
     }
 
-    private void updateImage(Color color, int originSquare, int destinationSquare, Piece piece){
+    private void updateImage(PieceColor color, int originSquare, int destinationSquare, Piece piece){
         String movingPiece = color.toString() + "" + piece.toString();
         squares.get(originSquare).getStyleClass().remove(movingPiece);
         squares.get(originSquare).getStyleClass().add("Empty");
@@ -60,9 +60,5 @@ public class ChessController {
         Pawn
     }
 
-    private enum Color {
-        Black,
-        White
-    }
 
 }
