@@ -4,7 +4,7 @@ public class Board {
 
     private static final int COLUMNS = 8;
     private static final int ROWS = 8;
-    private Square[][] squares = new Square[COLUMNS][ROWS];
+    private Square[][] squares = new Square[ROWS][COLUMNS];
 
     /**
      * Creates an empty board
@@ -31,7 +31,7 @@ public class Board {
     }
 
     public void setPiece(Location location, AbstractPiece piece) {
-
+        squares[location.getRow()][location.getColumn()].setPiece(piece);
     }
 
     /**
@@ -50,14 +50,14 @@ public class Board {
             return false;
         }
 
-        Square currentSquare = getSquare(move.getFrom());   //how else can i get the location if it doesnt extend AbstractPiece?
+        Square currentSquare = getSquare(move.getFrom());
         Square destinationSquare = getSquare(move.getTo());
         AbstractPiece currentPiece = currentSquare.getPiece();
         AbstractPiece destinationPiece = destinationSquare.getPiece();
 
         if (currentPiece == null) {
             return false;
-        } else if (move.getFrom() == move.getTo()) {
+        } else if (currentSquare == destinationSquare) {
             return false;
         } else if (destinationPiece != null) {
             if (destinationSquare.hasPiece() && destinationPiece.getColor() == currentPiece.getColor()) {
@@ -67,18 +67,21 @@ public class Board {
             if (move.isJump()) {
                 return true;
             } else {
-                while (currentRow != destinationRow && currentColumn != destinationColumn) {
+                while (currentRow != destinationRow || currentColumn != destinationColumn) {
                     if (currentRow < destinationRow) {
                         currentRow++;
-                    } else {
+                    }
+                    else if (currentRow > destinationRow){
                         currentRow--;
                     }
                     if (currentColumn < destinationColumn) {
                         currentColumn++;
-                    } else {
+                    } else if (currentColumn > destinationColumn) {
                         currentColumn--;
                     }
-                    //if the new location has a piece, return false
+                    if(squares[currentRow][currentColumn].hasPiece()){
+                        return false;
+                    }
                 }
                 return true;
             }
