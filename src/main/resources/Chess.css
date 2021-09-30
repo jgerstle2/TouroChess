@@ -1,0 +1,71 @@
+Label {
+    -fx-border: 1;
+    -fx-min-width: 70;
+    -fx-text-alignment: center;
+    -fx-min-height: 70;
+    -fx-border-color:black;
+    -fx-border-style: solid;
+    -fx-padding: 8 8 8 8;
+    -fx-background-color: #FFFFFF;
+    -fx-alignment: center;
+}
+
+Label.light {
+    -fx-background-color: #ffce9e;
+}
+
+Label.dark {
+    -fx-background-color: #d18b47;
+}
+
+Label.BlackBishop {
+    -fx-background-image: url("images/b_bishop.png");
+}
+
+Label.BlackKing {
+    -fx-background-image: url("images/b_king.png");
+}
+
+Label.BlackKnight {
+    -fx-background-image: url("images/b_knight.png");
+}
+
+Label.BlackPawn {
+    -fx-background-image: url("images/b_pawn.png");
+}
+
+Label.BlackQueen {
+    -fx-background-image: url("images/b_queen.png");
+}
+
+Label.BlackRook {
+    -fx-background-image: url("images/b_rook.png");
+}
+
+Label.WhiteBishop {
+    -fx-background-image: url("images/w_bishop.png");
+}
+
+Label.WhiteKing {
+    -fx-background-image: url("images/w_king.png");
+}
+
+Label.WhiteKnight {
+    -fx-background-image: url("images/w_knight.png");
+}
+
+Label.WhitePawn {
+    -fx-background-image: url("images/w_pawn.png");
+}
+
+Label.WhiteQueen {
+    -fx-background-image: url("images/w_queen.png");
+}
+
+Label.WhiteRook {
+    -fx-background-image: url("images/w_rook.png");
+}
+
+Label.Empty {
+    -fx-background-image: none;
+}
