@@ -11,8 +11,9 @@ public class Knight extends AbstractPiece {
 
     @Override
     public List<Move> getMoves() {
-        int row = getLocation().getRow();
-        int col = getLocation().getColumn();
+        Location currentLocation = getLocation();
+        int row = currentLocation.getRow();
+        int col = currentLocation.getColumn();
 
         List<Move> moves = new ArrayList<Move>();
         moves.add( new Move(getLocation(), new Location(row + 1, col + 2), true));

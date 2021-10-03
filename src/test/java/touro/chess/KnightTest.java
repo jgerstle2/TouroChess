@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class KnightTest {
     @Test
-    public void getMovesTest(){
+    public void getMoves(){
         //given
         Location testLocation = new Location(4,3);
         Knight knight = new Knight(testLocation, PieceColor.Black);
@@ -32,7 +32,7 @@ public class KnightTest {
         for (Move move : listMoves) {
             assertEquals(listMoves.get(element).getTo().getColumn(), testMove.get(element).getTo().getColumn());
             assertEquals(listMoves.get(element).getTo().getRow(), testMove.get(element).getTo().getRow());
-        element = 1;
+            element = 1;
         }
     }
 }
