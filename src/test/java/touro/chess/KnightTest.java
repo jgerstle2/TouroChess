@@ -28,11 +28,9 @@ public class KnightTest {
         List<Move> listMoves = knight.getMoves();
 
         //then
-        int element = 0;
-        for (Move move : listMoves) {
-            assertEquals(listMoves.get(element).getTo().getColumn(), testMove.get(element).getTo().getColumn());
-            assertEquals(listMoves.get(element).getTo().getRow(), testMove.get(element).getTo().getRow());
-            element = 1;
+        for (int ix = 0; ix < testMove.size(); ix++){
+            assertEquals(listMoves.get(ix).getTo().getColumn(), testMove.get(ix).getTo().getColumn());
+            assertEquals(listMoves.get(ix).getTo().getRow(), testMove.get(ix).getTo().getRow());
         }
     }
 }
