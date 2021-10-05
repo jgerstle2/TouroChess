@@ -30,6 +30,8 @@ public class Location {
      * @return the move in chess notation https://en.wikipedia.org/wiki/Algebraic_notation_(chess)
      */
     public String toChessNotation() {
-        return toString();
+        //add 97 to row so '0' = 97, '1' = 98, etc.
+        //convert to ascii value so  97 = 'a', 98 = 'b', etc.
+        return (char)(row + 97) + "" + column;
     }
 }
