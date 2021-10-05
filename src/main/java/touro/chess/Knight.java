@@ -22,8 +22,8 @@ public class Knight extends AbstractPiece {
         moves.add( new Move(getLocation(), new Location(row - 1, col - 2), true));
         moves.add( new Move(getLocation(), new Location(row + 2, col - 1), true));
         moves.add( new Move(getLocation(), new Location(row + 2, col + 1), true));
-        moves.add( new Move(getLocation(), new Location(row -2, col -1), true));
-        moves.add( new Move(getLocation(), new Location(row -2, col + 1), true));
+        moves.add( new Move(getLocation(), new Location(row - 2, col - 1), true));
+        moves.add( new Move(getLocation(), new Location(row - 2, col + 1), true));
 
         return moves;
     }
