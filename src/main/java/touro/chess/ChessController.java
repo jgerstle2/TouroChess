@@ -35,7 +35,7 @@ public class ChessController {
                 int rowOption = locationOption.getRow();
                 int squareNum = (rowOption * 8) + colOption;
                 squares.get(squareNum).getStyleClass().add("Color.lightGray");
-                count++;
+                count++; 
             }
         });
     }
