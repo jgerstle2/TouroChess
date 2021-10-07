@@ -2,16 +2,42 @@ package touro.chess;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
+import javafx.scene.layout.GridPane;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChessController {
 
+    @FXML
+    GridPane chessBoardView;
     @FXML
     ArrayList<Label> squares;
 
     public void initialize() {
         setupInitialBoard();
+        pieceClickHandler();
+    }
+
+    private void pieceClickHandler()
+    {
+        chessBoardView.setOnMouseClicked(event -> {
+            Location location = new Location((int)event.getSceneX(), (int)event.getSceneY());
+            Square squareSelected = new Square(location);
+            AbstractPiece piece = squareSelected.getPiece();
+            List<Move> moveList = new ArrayList<>(piece.getMoves());
+            int count = 0;
+            for(Move move : moveList)
+            {
+                Square moveOption = new Square(move.getTo());
+                Location locationOption = new Location(0,0);
+                locationOption = moveOption.getLocation();
+                int colOption = locationOption.getColumn();
+                int rowOption = locationOption.getRow();
+                int squareNum = (rowOption * 8) + colOption;
+                squares.get(squareNum).getStyleClass().add("Color.lightGray");
+                count++;
+            }
+        });
     }
 
     private void setupInitialBoard() {
