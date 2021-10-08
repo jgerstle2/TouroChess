@@ -26,6 +26,24 @@ public class Location {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }
+        else if(obj == null || obj.getClass() != this.getClass()){
+            return false;
+        } else {
+            Location location = (Location) obj;
+            return (this.row == location.row && this.column == location.column);
+        }
+    }
+
+//    @Override
+//    public int hashCode(){
+//        //return a unique value for each location
+//    }
+
     /**
      * @return the move in chess notation https://en.wikipedia.org/wiki/Algebraic_notation_(chess)
      */

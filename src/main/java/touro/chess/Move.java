@@ -57,4 +57,25 @@ public class Move {
                 ", captureOnly=" + captureOnly +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }
+        else if(obj == null || this.getClass() != obj.getClass()){
+            return false;
+        }
+        else{
+            Move move = (Move) obj;
+            return (this.to == move.to && this.from == move.from
+                    && this.captureOnly == move.captureOnly
+                    && this.jump == move.jump);
+        }
+    }
+
+//    @Override
+//    public int hashcode(){
+//        //return unique value for each move
+//    }
 }
