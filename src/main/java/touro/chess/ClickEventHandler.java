@@ -10,6 +10,7 @@ public class ClickEventHandler
 {
     @FXML
     ArrayList<Label> squares;
+    private Board board;
     public void OnPieceClick(MouseEvent event)
     {
         Location location = new Location((int) event.getSceneX(), (int) event.getSceneY());
@@ -19,7 +20,7 @@ public class ClickEventHandler
         int count = 0;
         for (Move move : moveList)
         {
-            if(Board.isLegal(move))
+            if(board.isLegal(move))
             {
                 Square moveOption = new Square(move.getTo());
                 Location locationOption = moveOption.getLocation();

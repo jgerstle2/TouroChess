@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 
 public class ClickEventHandlerTest
 {
@@ -20,13 +21,20 @@ public class ClickEventHandlerTest
     public void onPieceClick()
     {
         //given
+        ClickEventHandler clickEventHandler = new ClickEventHandler();
+        Board board = new Board();
+        board.setUpBoard();
         Location location = new Location((int) 10.7, (int) 60.5);
-        Square square = new Square();
+        Square square = new Square(location);
+        KnightPiece knightPiece = new KnightPiece(location, PieceColor.Black);
+        square.setPiece(knightPiece);
+        mouseEvent.getSceneX() = mock(mouseEvent.getSceneX().class);
         doReturn(10.7).when(mouseEvent).getSceneX();
         doReturn(60.5).when(mouseEvent).getSceneY();
-        //when
-        ClickEventHandler.OnPieceClick(mouseEvent);
+
+        //when;
+        clickEventHandler.OnPieceClick(mouseEvent);
         //then
-        Assert.assertEquals(ClickEventHandler.squares, square);
+        Assert.assertEquals(clickEventHandler.squares, square);
     }
 }
