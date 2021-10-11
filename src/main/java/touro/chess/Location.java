@@ -1,5 +1,7 @@
 package touro.chess;
 
+import java.util.Objects;
+
 public class Location {
 
     private final int row;
@@ -27,22 +29,17 @@ public class Location {
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(this == obj){
-            return true;
-        }
-        else if(obj == null || obj.getClass() != this.getClass()){
-            return false;
-        } else {
-            Location location = (Location) obj;
-            return (this.row == location.row && this.column == location.column);
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return row == location.row && column == location.column;
     }
 
-//    @Override
-//    public int hashCode(){
-//        //return a unique value for each location
-//    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
+    }
 
     /**
      * @return the move in chess notation https://en.wikipedia.org/wiki/Algebraic_notation_(chess)
