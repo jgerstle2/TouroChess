@@ -15,6 +15,8 @@ public class Move {
      */
     private final boolean captureOnly;
 
+    private final boolean isCastle;
+
     public Move(Location from,
                 Location to,
                 boolean jump) {
@@ -30,6 +32,19 @@ public class Move {
         this.to = to;
         this.jump = jump;
         this.captureOnly = captureOnly;
+        isCastle = false;
+    }
+
+    public Move(Location from,
+                Location to,
+                boolean jump,
+                boolean captureOnly,
+                boolean isCastle){
+        this.from = from;
+        this.to = to;
+        this.isCastle = isCastle;
+        this.captureOnly = captureOnly;
+        this. jump = jump;
     }
 
     public Location getFrom() {
@@ -47,6 +62,8 @@ public class Move {
     public boolean isCaptureOnly() {
         return captureOnly;
     }
+
+    public boolean isCastle() {return isCastle;}
 
     @Override
     public String toString() {

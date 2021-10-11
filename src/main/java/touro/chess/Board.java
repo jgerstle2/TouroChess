@@ -126,7 +126,19 @@ public class Board {
         } else {   //if destination is empty or contains opposing color piece
             if (move.isJump()) {
                 return true;
-            } else {
+            }
+            else if (move.isCastle()){
+                //TODO conditions
+                //king not in check
+                //king and rook haven't moved
+                if (currentPiece.hasMoved()){
+                    return false;
+                }
+                //no pieces in between king and rook
+                //not moving through check
+                //check there's a rook in that spot of the right color
+            }
+                else {
                 while (currentRow != destinationRow || currentColumn != destinationColumn) {
                     if (currentRow < destinationRow) {
                         currentRow++;
