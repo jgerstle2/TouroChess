@@ -6,18 +6,32 @@ import java.util.List;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+
 public class ClickEventHandler
 {
     @FXML
     ArrayList<Label> squares;
     private Board board;
-    public void OnPieceClick(MouseEvent event)
+    public void onPieceClick(MouseEvent event)
     {
-        Location location = new Location((int) event.getSceneX(), (int) event.getSceneY());
-        Square squareSelected = new Square(location);
-        AbstractPiece piece = squareSelected.getPiece();
-        List<Move> moveList = new ArrayList<>(piece.getMoves());
+        Object source = event.getSource();
+        System.out.println(source);
+        Label label = (Label) source;
         int count = 0;
+        for(Label squareLabel : squares)
+        {
+            if (squareLabel == label)
+            {
+                break;
+            }
+            count++;
+        }
+        //getting the row and column from the divisibility of the numbers into 8 since that's the dimensions
+        Location coordinates = new Location(count/8, count%8);
+        AbstractPiece piece = board.getPiece(coordinates);
+        System.out.println(coordinates);
+        List<Move> moveList = piece.getMoves();
+        int counter = 0;
         for (Move move : moveList)
         {
             if(board.isLegal(move))
@@ -28,7 +42,7 @@ public class ClickEventHandler
                 int rowOption = locationOption.getRow();
                 int squareNum = (rowOption * 8) + colOption;
                 squares.get(squareNum).getStyleClass().add("Color.lightGray");
-                count++;
+                counter++;
             }
         }
     }
