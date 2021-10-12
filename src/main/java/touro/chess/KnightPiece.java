@@ -3,9 +3,9 @@ package touro.chess;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Knight extends AbstractPiece {
+public class KnightPiece extends AbstractPiece {
 
-    public Knight(Location location, PieceColor color) {
+    public KnightPiece(Location location, PieceColor color) {
         super(location, color);
     }
 

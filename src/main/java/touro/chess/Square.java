@@ -10,6 +10,7 @@ public class Square {
         this.location = location;
     }
 
+
     public Location getLocation() {
         return location;
     }
