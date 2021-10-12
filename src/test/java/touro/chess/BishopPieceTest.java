@@ -43,9 +43,6 @@ public class BishopPieceTest
         List<Move> moves = bishop.getMoves();
 
         //then
-        for(int ii = 0; ii < expectedMoves.size(); ii++)
-        {
-            assertEquals(expectedMoves.get(ii), moves.get(ii));
-        }
+        assertEquals(expectedMoves, moves);
     }
 }
