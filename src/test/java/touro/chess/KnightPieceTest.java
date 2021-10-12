@@ -27,9 +27,6 @@ public class KnightPieceTest {
         List<Move> listMoves = knightPiece.getMoves();
 
         //then
-        for (int ix = 0; ix < testMove.size(); ix++){
-            assertEquals(listMoves.get(ix).getTo().getColumn(), testMove.get(ix).getTo().getColumn());
-            assertEquals(listMoves.get(ix).getTo().getRow(), testMove.get(ix).getTo().getRow());
-        }
+        assertEquals(listMoves, testMove);
     }
 }

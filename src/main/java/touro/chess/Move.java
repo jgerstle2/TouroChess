@@ -1,5 +1,7 @@
 package touro.chess;
 
+import java.util.Objects;
+
 public class Move {
 
     private final Location from;
@@ -56,5 +58,18 @@ public class Move {
                 ", jump=" + jump +
                 ", captureOnly=" + captureOnly +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Move move = (Move) o;
+        return jump == move.jump && captureOnly == move.captureOnly && from.equals(move.from) && to.equals(move.to);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(from, to, jump, captureOnly);
     }
 }

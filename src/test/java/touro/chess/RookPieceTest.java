@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.List;
 import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class RookPieceTest
@@ -57,8 +58,7 @@ public class RookPieceTest
         int count = 0;
         for(Move move: list)
         {
-            assertEquals(move.getTo().getColumn(),validValues.get(count).getTo().getColumn());
-            assertEquals(move.getTo().getRow(),validValues.get(count).getTo().getRow());
+            assertEquals(move, validValues.get(count));
             count++;
         }
     }
@@ -89,8 +89,7 @@ public class RookPieceTest
         int count = 0;
         for(Move move: list)
         {
-            assertEquals(move.getTo().getColumn(),validValues.get(count).getTo().getColumn());
-            assertEquals(move.getTo().getRow(),validValues.get(count).getTo().getRow());
+            assertEquals(move, validValues.get(count));
             count++;
         }
     }
