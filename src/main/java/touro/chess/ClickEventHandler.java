@@ -1,7 +1,5 @@
 package touro.chess;
 
-import javafx.fxml.FXML;
-import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -10,26 +8,16 @@ import javafx.scene.input.MouseEvent;
 public class ClickEventHandler
 {
     Board board;
-    @FXML
-    ArrayList<Label> squares;
     public ClickEventHandler(Board board)
     {
         this.board = board;
-
     }
     public void onPieceClick(MouseEvent event)
     {
         Object source = event.getSource();
         Label label = (Label) source;
-        int count = 0;
-        for(Label squareLabel : squares)
-        {
-            if (squareLabel == label)
-            {
-                break;
-            }
-            count++;
-        }
+        String strCount = label.toString().substring(6);;
+        int count = Integer.getInteger(strCount);
         //getting the row and column from the divisibility of the numbers into 8 since that's the dimensions
         Location coordinates = new Location(count/8, count%8);
         AbstractPiece piece = board.getPiece(coordinates);
@@ -44,8 +32,10 @@ public class ClickEventHandler
                 Location locationOption = moveOption.getLocation();
                 int colOption = locationOption.getColumn();
                 int rowOption = locationOption.getRow();
+                //get num of square from row and col
                 int squareNum = (rowOption * 8) + colOption;
-                squares.get(squareNum).getStyleClass().add("Color.lightGray");
+                Label moveOptionLabel = (Label) label.getParent().getChildrenUnmodifiable().get(squareNum);
+                moveOptionLabel.getStyleClass().add("Color.lightGray");
                 counter++;
             }
         }
