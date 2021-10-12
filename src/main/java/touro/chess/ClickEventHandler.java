@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 public class ClickEventHandler
 {
     Board board;
-    public ClickEventHandler(Board board)
+    /**private*/ ClickEventHandler(Board board)
     {
         this.board = board;
     }
@@ -16,6 +16,7 @@ public class ClickEventHandler
     {
         Object source = event.getSource();
         Label label = (Label) source;
+        //removing the name from the source and getting the number of the label.
         String strCount = label.toString().substring(6);;
         int count = Integer.getInteger(strCount);
         //getting the row and column from the divisibility of the numbers into 8 since that's the dimensions
