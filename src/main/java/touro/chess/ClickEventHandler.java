@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 public class ClickEventHandler
 {
     Board board;
-    private ClickEventHandler(Board board)
+    public ClickEventHandler(Board board)
     {
         this.board = board;
     }
