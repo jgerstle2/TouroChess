@@ -127,6 +127,7 @@ public class Board {
             } else if (move.isCastle()) {
                 //TODO conditions
                 //king not in check
+                //not moving through check
                 //king and rook haven't moved
                 if (currentPiece.hasMoved()) {
                     return false;
@@ -165,8 +166,6 @@ public class Board {
                         }
                     }
                 }
-                //check there's a rook in that spot of the right color
-                //not moving through check
             } else {
                 while (currentRow != destinationRow || currentColumn != destinationColumn) {
                     if (currentRow < destinationRow) {
