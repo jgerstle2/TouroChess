@@ -28,8 +28,7 @@ public class KnightPieceTest {
 
         //then
         for (int ix = 0; ix < testMove.size(); ix++){
-            assertEquals(listMoves.get(ix).getTo().getColumn(), testMove.get(ix).getTo().getColumn());
-            assertEquals(listMoves.get(ix).getTo().getRow(), testMove.get(ix).getTo().getRow());
+            assertEquals(listMoves.get(ix), testMove.get(ix));
         }
     }
 }

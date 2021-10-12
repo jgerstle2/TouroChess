@@ -45,8 +45,7 @@ public class BishopPieceTest
         //then
         for(int ii = 0; ii < expectedMoves.size(); ii++)
         {
-            Assert.assertEquals(expectedMoves.get(ii).getTo().getRow(), moves.get(ii).getTo().getRow());
-            Assert.assertEquals(expectedMoves.get(ii).getTo().getColumn(), moves.get(ii).getTo().getColumn());
+            assertEquals(expectedMoves.get(ii), moves.get(ii));
         }
     }
 }

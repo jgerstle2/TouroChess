@@ -29,8 +29,7 @@ public class KingPieceTest {
 
         //then
         for (int i = 0; i<=7; i++){
-            assertEquals(legalMoves.get(i).getTo().getColumn(),practiceList.get(i).getTo().getColumn());
-            assertEquals(legalMoves.get(i).getTo().getRow(),practiceList.get(i).getTo().getRow());
+            assertEquals(legalMoves.get(i), practiceList.get(i));
         }
     }
 }

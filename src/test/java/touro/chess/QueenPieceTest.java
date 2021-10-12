@@ -24,22 +24,16 @@ public class QueenPieceTest {
 
         //then
         //check horizontal
-        assertEquals(moveList.get(0).getTo().getColumn(),expectedMoveList.get(0).getTo().getColumn());
-        assertEquals(moveList.get(0).getTo().getRow(),expectedMoveList.get(0).getTo().getRow());
+        assertEquals(moveList.get(0), expectedMoveList.get(0));
         //check vertical
-        assertEquals(moveList.get(8).getTo().getColumn(),expectedMoveList.get(1).getTo().getColumn());
-        assertEquals(moveList.get(8).getTo().getRow(),expectedMoveList.get(1).getTo().getRow());
+        assertEquals(moveList.get(8), expectedMoveList.get(1));
         //check up&right
-        assertEquals(moveList.get(16).getTo().getColumn(),expectedMoveList.get(2).getTo().getColumn());
-        assertEquals(moveList.get(16).getTo().getRow(),expectedMoveList.get(2).getTo().getRow());
+        assertEquals(moveList.get(16), expectedMoveList.get(2));
         //check down&left
-        assertEquals(moveList.get(21).getTo().getColumn(),expectedMoveList.get(3).getTo().getColumn());
-        assertEquals(moveList.get(21).getTo().getRow(),expectedMoveList.get(3).getTo().getRow());
+        assertEquals(moveList.get(21), expectedMoveList.get(3));
         //check up&left
-        assertEquals(moveList.get(22).getTo().getColumn(),expectedMoveList.get(4).getTo().getColumn());
-        assertEquals(moveList.get(22).getTo().getRow(),expectedMoveList.get(4).getTo().getRow());
+        assertEquals(moveList.get(22), expectedMoveList.get(4));
         //check down&right
-        assertEquals(moveList.get(23).getTo().getColumn(),expectedMoveList.get(5).getTo().getColumn());
-        assertEquals(moveList.get(23).getTo().getRow(),expectedMoveList.get(5).getTo().getRow());
+        assertEquals(moveList.get(23), expectedMoveList.get(5));
      }
 }
