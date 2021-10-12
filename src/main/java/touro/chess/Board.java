@@ -30,11 +30,9 @@ public class Board {
      * Sets up the board at the beginning of the game
      */
 
-    public void setUpBoard()
-    {
+    public void setUpBoard() {
         //pawns
-        for(int column = 0; column < COLUMNS; column++)
-        {
+        for (int column = 0; column < COLUMNS; column++) {
             int rowWhite = 1;
             int rowBlack = 6;
             squares[column][rowWhite].setPiece(new PawnPiece(new Location(rowWhite, column), White));
@@ -68,11 +66,11 @@ public class Board {
 
     /**
      * Returns the piece at a given location
+     *
      * @param location
      * @return AbstractPiece if there is a piece there, otherwise null
      */
-    public @Nullable AbstractPiece getPiece(Location location)
-    {
+    public @Nullable AbstractPiece getPiece(Location location) {
         return squares[location.getColumn()][location.getRow()].getPiece();
     }
 
@@ -126,38 +124,54 @@ public class Board {
         } else {   //if destination is empty or contains opposing color piece
             if (move.isJump()) {
                 return true;
-            }
-            else if (move.isCastle()){
+            } else if (move.isCastle()) {
                 //TODO conditions
                 //king not in check
                 //king and rook haven't moved
-                if (currentPiece.hasMoved()){
+                if (currentPiece.hasMoved()) {
                     return false;
                 }
-                //no pieces in between king and rook
-                Square castleRight = getSquare(new Location(currentRow, currentColumn +2));
-                if (destinationSquare == castleRight){
+                //CASTLE RIGHT
+                Square castleRight = getSquare(new Location(currentRow, currentColumn + 2));
+                //check no pieces in between king and rook
+                if (destinationSquare == castleRight) {
                     Square right = getSquare(new Location(currentRow, currentColumn + 1));
-                    if (right.hasPiece() && castleRight.hasPiece()){
+                    if (right.hasPiece() && castleRight.hasPiece()) {
                         return false;
                     }
+                    //check there is a rook of the right color in that spot
+                    Square rookSquare = getSquare(new Location(currentRow, currentColumn + 3));
+                    AbstractPiece rookPiece = rookSquare.getPiece();
+                    if (rookPiece != null) {
+                        if (!rookSquare.hasPiece() && rookPiece.getColor() != currentPiece.getColor()) {
+                            return false;
+                        }
+                    }
                 }
-                Square castleLeft = getSquare(new Location(currentRow, currentColumn -2));
-                if (destinationSquare == castleLeft){
+                //CASTLE LEFT
+                Square castleLeft = getSquare(new Location(currentRow, currentColumn - 2));
+                //check no pieces in between king and rook
+                if (destinationSquare == castleLeft) {
                     Square left = getSquare(new Location(currentRow, currentColumn - 1));
-                    if (left.hasPiece() && castleLeft.hasPiece()){
+                    if (left.hasPiece() && castleLeft.hasPiece()) {
                         return false;
+                    }
+                    //check there is a rook of the right color in that spot
+                    Square rookSquareLeft = getSquare(new Location(currentRow, currentColumn - 3));
+                    AbstractPiece rookPieceLeft = rookSquareLeft.getPiece();
+                    if (rookPieceLeft != null) {
+                        if (!rookSquareLeft.hasPiece() && rookPieceLeft.getColor() != currentPiece.getColor()) {
+                            return false;
+                        }
                     }
                 }
                 //check there's a rook in that spot of the right color
                 //not moving through check
-            }
-                else {
+            } else {
                 while (currentRow != destinationRow || currentColumn != destinationColumn) {
                     if (currentRow < destinationRow) {
                         currentRow++;
-                    }
-                    else if (currentRow > destinationRow){
+                    } else if (currentRow > destinationRow) {
                         currentRow--;
                     }
                     if (currentColumn < destinationColumn) {
@@ -165,7 +179,7 @@ public class Board {
                     } else if (currentColumn > destinationColumn) {
                         currentColumn--;
                     }
-                    if(squares[currentColumn][currentRow].hasPiece()){
+                    if (squares[currentColumn][currentRow].hasPiece()) {
                         return false;
                     }
                 }
