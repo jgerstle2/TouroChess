@@ -7,22 +7,23 @@ import javafx.scene.input.MouseEvent;
 
 public class ClickEventHandler
 {
-    Board board;
+    private Board board;
+
     public ClickEventHandler(Board board)
     {
         this.board = board;
     }
+
     public void onPieceClick(MouseEvent event)
     {
         Object source = event.getSource();
         Label label = (Label) source;
         //removing the name from the source and getting the number of the label.
-        String strCount = label.toString().substring(6);;
-        int count = Integer.getInteger(strCount);
+        String strCount = label.getId().substring(6);
+        int count = Integer.parseInt(strCount);
         //getting the row and column from the divisibility of the numbers into 8 since that's the dimensions
         Location coordinates = new Location(count/8, count%8);
         AbstractPiece piece = board.getPiece(coordinates);
-        System.out.println(coordinates);
         List<Move> moveList = piece.getMoves();
         int counter = 0;
         for (Move move : moveList)
