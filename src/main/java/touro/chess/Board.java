@@ -137,12 +137,9 @@ public class Board {
                 //no pieces in between king and rook
                 Square right1 = getSquare(new Location(currentRow, currentColumn + 1));
                 Square right2 = getSquare(new Location(currentRow, currentColumn + 2));
-                if (right1.hasPiece() && right2.hasPiece()){
-                    return false;
-                }
                 Square left1 = getSquare(new Location(currentRow, currentColumn - 1));
                 Square left2 = getSquare(new Location(currentRow, currentColumn - 2));
-                if (left1.hasPiece() && left2.hasPiece()){
+                if ((right1.hasPiece() && right2.hasPiece()) || (left1.hasPiece() && left2.hasPiece())){
                     return false;
                 }
                 //not moving through check
