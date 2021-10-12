@@ -11,5 +11,9 @@ This is a guide for [Chess for beginners](https://www.wikihow.com/Play-Chess-for
 #### Contributors
 
 Andrew Schwimmer
+Sara Croitoru
+Hadassah Rosenfeld
+Tali Benedek
 Leah Wolfish
 Jennifer Gerstle
+Ahuva Cheifetz
