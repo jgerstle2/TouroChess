@@ -12,4 +12,4 @@ This is a guide for [Chess for beginners](https://www.wikihow.com/Play-Chess-for
 
 Andrew Schwimmer
 Leah Wolfish
-Jennifer Gerstle
+
