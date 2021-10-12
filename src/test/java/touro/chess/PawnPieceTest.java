@@ -23,17 +23,17 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals( new Location(6, 5).toString(), firstLocation.toString());
+        assertEquals( new Location(6, 5), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(6, 6).toString(), secLocation.toString());
+        assertEquals(new Location(6, 6), secLocation);
 
         //third move on list
         Location thirdLocation = moves.get(2).getTo();
 
-        assertEquals(new Location(6, 4).toString(), thirdLocation.toString());
+        assertEquals(new Location(6, 4), thirdLocation);
     }
 
     @Test
@@ -50,17 +50,17 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals( new Location(4, 5).toString(), firstLocation.toString());
+        assertEquals( new Location(4, 5), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(4, 6).toString(), secLocation.toString());
+        assertEquals(new Location(4, 6), secLocation);
 
         //third move on list
         Location thirdLocation = moves.get(2).getTo();
 
-        assertEquals(new Location(4, 4).toString(), thirdLocation.toString());
+        assertEquals(new Location(4, 4), thirdLocation);
     }
 
     @Test
@@ -80,22 +80,22 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals(new Location(3, 5).toString(), firstLocation.toString());
+        assertEquals(new Location(3, 5), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(2, 5).toString(), secLocation.toString());
+        assertEquals(new Location(2, 5), secLocation);
 
         //third move on list
         Location thirdLocation = moves.get(2).getTo();
 
-        assertEquals(new Location(2, 6).toString(), thirdLocation.toString());
+        assertEquals(new Location(2, 6), thirdLocation);
 
         //fourth move on list
         Location fourthLocation = moves.get(3).getTo();
 
-        assertEquals(new Location(2, 4).toString(), fourthLocation.toString());
+        assertEquals(new Location(2, 4), fourthLocation);
     }
 
     @Test
@@ -114,22 +114,22 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals(new Location(4, 5).toString(), firstLocation.toString());
+        assertEquals(new Location(4, 5), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(5, 5).toString(), secLocation.toString());
+        assertEquals(new Location(5, 5), secLocation);
 
         //third move on list
         Location thirdLocation = moves.get(2).getTo();
 
-        assertEquals(new Location(5, 6).toString(), thirdLocation.toString());
+        assertEquals(new Location(5, 6), thirdLocation);
 
         //fourth move on list
         Location fourthLocation = moves.get(3).getTo();
 
-        assertEquals(new Location(5, 4).toString(), fourthLocation.toString());
+        assertEquals(new Location(5, 4), fourthLocation);
     }
 
     @Test
@@ -147,12 +147,12 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals(new Location(5, 7).toString(), firstLocation.toString());
+        assertEquals(new Location(5, 7), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(5, 6).toString(), secLocation.toString());
+        assertEquals(new Location(5, 6), secLocation);
     }
 
     @Test
@@ -170,12 +170,12 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals(new Location(5, 0).toString(), firstLocation.toString());
+        assertEquals(new Location(5, 0), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals( new Location(5, 1).toString(), secLocation.toString());
+        assertEquals( new Location(5, 1), secLocation);
     }
 
     @Test
@@ -193,12 +193,12 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals(new Location(3, 7).toString(), firstLocation.toString());
+        assertEquals(new Location(3, 7), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(3, 6).toString(), secLocation.toString());
+        assertEquals(new Location(3, 6), secLocation);
     }
 
     @Test
@@ -216,12 +216,12 @@ public class PawnPieceTest {
         //first move on list
         Location firstLocation = moves.get(0).getTo();
 
-        assertEquals(new Location(3, 0).toString(), firstLocation.toString());
+        assertEquals(new Location(3, 0), firstLocation);
 
         //second move on list
         Location secLocation = moves.get(1).getTo();
 
-        assertEquals(new Location(3, 1).toString(), secLocation.toString());
+        assertEquals(new Location(3, 1), secLocation);
     }
 
     @Test
