@@ -137,22 +137,20 @@ public class Board {
                 //no pieces in between king and rook
                 Square castleRight = getSquare(new Location(currentRow, currentColumn +2));
                 if (destinationSquare == castleRight){
-                    Square right1 = getSquare(new Location(currentRow, currentColumn + 1));
-                    Square right2 = getSquare(new Location(currentRow, currentColumn + 2));
-                    if (right1.hasPiece() && right2.hasPiece()){
+                    Square right = getSquare(new Location(currentRow, currentColumn + 1));
+                    if (right.hasPiece() && castleRight.hasPiece()){
                         return false;
                     }
                 }
                 Square castleLeft = getSquare(new Location(currentRow, currentColumn -2));
                 if (destinationSquare == castleLeft){
-                    Square left1 = getSquare(new Location(currentRow, currentColumn - 1));
-                    Square left2 = getSquare(new Location(currentRow, currentColumn - 2));
-                    if (left1.hasPiece() && left2.hasPiece()){
+                    Square left = getSquare(new Location(currentRow, currentColumn - 1));
+                    if (left.hasPiece() && castleLeft.hasPiece()){
                         return false;
                     }
                 }
-                //not moving through check
                 //check there's a rook in that spot of the right color
+                //not moving through check
             }
                 else {
                 while (currentRow != destinationRow || currentColumn != destinationColumn) {
