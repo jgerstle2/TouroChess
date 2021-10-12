@@ -11,5 +11,6 @@ This is a guide for [Chess for beginners](https://www.wikihow.com/Play-Chess-for
 #### Contributors
 
 Andrew Schwimmer
+Hadassah Rosenfeld
 Tali Benedek
 Leah Wolfish
