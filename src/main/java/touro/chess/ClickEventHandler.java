@@ -9,13 +9,17 @@ import javafx.scene.input.MouseEvent;
 
 public class ClickEventHandler
 {
+    Board board;
     @FXML
     ArrayList<Label> squares;
-    private Board board;
+    public ClickEventHandler(Board board)
+    {
+        this.board = board;
+
+    }
     public void onPieceClick(MouseEvent event)
     {
         Object source = event.getSource();
-        System.out.println(source);
         Label label = (Label) source;
         int count = 0;
         for(Label squareLabel : squares)
