@@ -27,7 +27,6 @@ public class ClickEventHandlerTest
         doReturn(13).when(mouseEvent).getSource();
         doReturn(mouseEvent.getSource()).when(mouseEvent);
 
-
         ClickEventHandler clickEventHandler = new ClickEventHandler(board);
         board.setUpBoard();
         Location location = new Location(1, 5);
@@ -38,6 +37,6 @@ public class ClickEventHandlerTest
         //when;
         clickEventHandler.onPieceClick(mouseEvent);
         //then
-        Assert.assertEquals(clickEventHandler.squares, square);
+        Assert.assertEquals(clickEventHandler.board.getSquare(location), square);
     }
 }
