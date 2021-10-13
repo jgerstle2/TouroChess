@@ -47,6 +47,6 @@ public class Location {
     public String toChessNotation() {
         //add 97 to row so '0' = 97, '1' = 98, etc.
         //convert to ascii value so  97 = 'a', 98 = 'b', etc.
-        return (char)(row + 97) + "" + column;
+        return (char)(row + 97) + "" + (column + 1);
     }
 }
