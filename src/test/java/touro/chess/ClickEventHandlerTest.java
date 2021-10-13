@@ -52,5 +52,6 @@ public class ClickEventHandlerTest
 
         //then
         verify(label).setStyle("Color.lightGray");
+        verify(label,times(1)).setStyle("Color.lightGray");
     }
 }
