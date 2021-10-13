@@ -37,6 +37,6 @@ public class ClickEventHandlerTest
         //when;
         clickEventHandler.onPieceClick(mouseEvent);
         //then
-        
+
     }
 }
