@@ -4,8 +4,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
