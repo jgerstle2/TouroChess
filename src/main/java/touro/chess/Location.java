@@ -17,6 +17,15 @@ public class Location {
     public int getColumn() {
         return column;
     }
+    public int convertOrigin (Move move)
+    {
+        return move.getFrom().getRow() * 8 + move.getFrom().getColumn();
+    }
+
+    public int convertDestination (Move move)
+    {
+        return move.getTo().getRow() * 8 + move.getTo().getColumn();
+    }
 
     @Override
     public String toString() {
