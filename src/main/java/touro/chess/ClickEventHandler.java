@@ -5,7 +5,6 @@ import java.util.List;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-
 public class ClickEventHandler
 {
     private Board board;
@@ -21,9 +20,11 @@ public class ClickEventHandler
     {
         Object source = event.getSource();
         Label label = (Label) source;
+
         //removing the name from the source and getting the number of the label.
         String strCount = label.getId().substring(6);
         int count = Integer.parseInt(strCount);
+
         //getting the row and column from the divisibility of the numbers into 8 since that's the dimensions
         Location coordinates = new Location(count/8, count%8);
         AbstractPiece piece = board.getPiece(coordinates);
@@ -36,6 +37,7 @@ public class ClickEventHandler
                 Location  moveTo = move.getTo();
                 int colOption = moveTo.getColumn();
                 int rowOption = moveTo.getRow();
+
                 //get num of square from row and col
                 int squareNum = (rowOption * 8) + colOption;
                 Label moveToLabel = squares.get(squareNum);

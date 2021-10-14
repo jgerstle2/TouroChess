@@ -2,8 +2,6 @@ package touro.chess;
 
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -39,6 +37,7 @@ public class ClickEventHandlerTest
         {
             squares.add(label);
         }
+
         doReturn("square0").when(label).getId();
         doReturn(label).when(mouseEvent).getSource();
         doReturn(piece).when(board).getPiece(any());
