@@ -36,6 +36,7 @@ public class ClickEventHandlerTest
         squares.add(moveToLabel);
 
         doReturn("square0").when(label).getId();
+        doReturn("square1").when(moveToLabel).getId();
         doReturn(label).when(mouseEvent).getSource();
         doReturn(piece).when(board).getPiece(any());
         doReturn(list).when(piece).getMoves();
@@ -47,6 +48,6 @@ public class ClickEventHandlerTest
         clickEventHandler.onPieceClick(mouseEvent);
 
         //then
-        verify(label).setStyle("Color.lightGray");
+        verify(moveToLabel).setStyle("Color.lightGray");
     }
 }
