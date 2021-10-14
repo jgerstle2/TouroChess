@@ -23,6 +23,7 @@ public class ClickEventHandlerTest
         Board board = mock(Board.class);
         MouseEvent mouseEvent = mock(MouseEvent.class);
         Label label = mock(Label.class);
+        Label moveToLabel = mock(Label.class);
         AbstractPiece piece = mock(AbstractPiece.class);
 
         List<Move> list = new ArrayList<>();
@@ -31,10 +32,8 @@ public class ClickEventHandlerTest
         Move move = new Move(from, to, false);
         list.add(move);
         ArrayList<Label> squares = new ArrayList<>();
-        for(int boxes = 0; boxes < 64; boxes++)
-        {
-            squares.add(label);
-        }
+        squares.add(label);
+        squares.add(moveToLabel);
 
         doReturn("square0").when(label).getId();
         doReturn(label).when(mouseEvent).getSource();
@@ -49,6 +48,5 @@ public class ClickEventHandlerTest
 
         //then
         verify(label).setStyle("Color.lightGray");
-        verify(label,times(1)).setStyle("Color.lightGray");
     }
 }
