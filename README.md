@@ -16,10 +16,6 @@ Hadassah Rosenfeld
 Tali Benedek
 Leah Wolfish
 Talia Yahav
+Eliana Gewirtz
 Jennifer Gerstle
->>>>>>> dfe85a0f6448404e207b3e41b307b1361a96a5c2
 Ahuva Cheifetz
->>>>>>> 5a36aa950a2d5191fab9c6a60c65d213a2b329bb
-=======
-Ahuva Cheifetz
->>>>>>> 1e1a0d60b36c8c13a75fbbc16f0c841cb5a91135
