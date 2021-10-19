@@ -122,9 +122,11 @@ public class Board {
                 return false;
             }
         } else {   //if destination is empty or contains opposing color piece
-            if (move.isJump()) {
+            if (move instanceof JumpMove) {
                 return true;
-            } else if (move.isCastle()) {
+            } else if (move instanceof PawnCaptureMove) {
+                // TODO fill this out
+            } else if (move instanceof KingCastleMove) {
                 //TODO conditions
                 //king not in check
                 //not moving through check

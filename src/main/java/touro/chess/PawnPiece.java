@@ -42,21 +42,21 @@ public class PawnPiece extends AbstractPiece {
 
         //if this is first move
         if (row == startingRow) {
-            moves.add(new Move(location, new Location(row + movement + movement, col), false, false));
+            moves.add(new Move(location, new Location(row + movement + movement, col)));
         }
 
         //move forward
         if (row != neverRow) {
-            moves.add(new Move(location, new Location(row + movement, col), false, false));
+            moves.add(new Move(location, new Location(row + movement, col)));
 
             //move to the left
             if (col != 7) {
-                moves.add(new Move(location, new Location(row + movement, col + 1), false, true));
+                moves.add(new PawnCaptureMove(location, new Location(row + movement, col + 1)));
             }
 
             //move to the right
             if (col != 0) {
-                moves.add(new Move(location, new Location(row + movement, col - 1), false, true));
+                moves.add(new PawnCaptureMove(location, new Location(row + movement, col - 1)));
             }
         }
         return moves;
