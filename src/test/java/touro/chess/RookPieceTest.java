@@ -19,11 +19,11 @@ public class RookPieceTest
         List<Move> validValues = new ArrayList<>();
         for(int row = location.getRow()+1; row < 8; ++row)
         {
-            validValues.add(new Move(location, new Location(row, location.getColumn()), false));
+            validValues.add(new Move(location, new Location(row, location.getColumn())));
         }
         for(int col = location.getColumn()+1; col < 8; ++col)
         {
-            validValues.add(new Move(location, new Location(location.getRow(), col), false));
+            validValues.add(new Move(location, new Location(location.getRow(), col)));
         }
         //when
         List<Move> list = rook.getMoves();
@@ -46,11 +46,11 @@ public class RookPieceTest
         List<Move> validValues = new ArrayList<>();
         for(int row = 0; row < 7; ++row)
         {
-            validValues.add(new Move(location, new Location(row, location.getColumn()), false));
+            validValues.add(new Move(location, new Location(row, location.getColumn())));
         }
         for(int col = 0; col < 7; ++col)
         {
-            validValues.add(new Move(location, new Location(location.getRow(), col), false));
+            validValues.add(new Move(location, new Location(location.getRow(), col)));
         }
         //when
         List<Move> list = rook.getMoves();
@@ -73,14 +73,14 @@ public class RookPieceTest
         {
             if (location.getRow() != row)
             {
-                validValues.add(new Move(location, new Location(row, location.getColumn()), false));
+                validValues.add(new Move(location, new Location(row, location.getColumn())));
             }
         }
         for(int col = 0; col < 8; ++col)
         {
             if (location.getColumn() != col)
             {
-                validValues.add(new Move(location, new Location(location.getRow(), col), false));
+                validValues.add(new Move(location, new Location(location.getRow(), col)));
             }
         }
         //when

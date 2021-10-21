@@ -16,14 +16,14 @@ public class KnightPiece extends AbstractPiece {
         int col = currentLocation.getColumn();
 
         List<Move> moves = new ArrayList<>();
-        moves.add( new JumpMove(getLocation(), new Location(row + 1, col + 2)));
-        moves.add( new JumpMove(getLocation(), new Location(row - 1, col + 2)));
-        moves.add( new JumpMove(getLocation(), new Location(row + 1, col - 2)));
-        moves.add( new JumpMove(getLocation(), new Location(row - 1, col - 2)));
-        moves.add( new JumpMove(getLocation(), new Location(row + 2, col - 1)));
-        moves.add( new JumpMove(getLocation(), new Location(row + 2, col + 1)));
-        moves.add( new JumpMove(getLocation(), new Location(row - 2, col - 1)));
-        moves.add( new JumpMove(getLocation(), new Location(row - 2, col + 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 1, col + 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 1, col + 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 1, col - 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 1, col - 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 2, col - 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 2, col + 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 2, col - 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 2, col + 1)));
 
         return moves;
     }
