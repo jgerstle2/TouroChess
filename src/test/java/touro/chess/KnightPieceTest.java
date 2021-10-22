@@ -14,14 +14,14 @@ public class KnightPieceTest {
         Location testLocation = new Location(4,3);
         KnightPiece knightPiece = new KnightPiece(testLocation, PieceColor.Black);
         List<Move> testMove = new ArrayList<>();
-        testMove.add(new Move(knightPiece.getLocation(), new Location(5,5),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(3,5),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(5,1),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(3,1),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(6,2),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(6,4),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(2,2),true));
-        testMove.add(new Move(knightPiece.getLocation(), new Location(2,4),true));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(5,5)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(3,5)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(5,1)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(3,1)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(6,2)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(6,4)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(2,2)));
+        testMove.add(new KnightMove(knightPiece.getLocation(), new Location(2,4)));
 
         //when
         List<Move> listMoves = knightPiece.getMoves();

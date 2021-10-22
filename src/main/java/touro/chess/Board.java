@@ -2,8 +2,6 @@ package touro.chess;
 
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
 import static touro.chess.PieceColor.Black;
 import static touro.chess.PieceColor.White;
 
@@ -122,9 +120,11 @@ public class Board {
                 return false;
             }
         } else {   //if destination is empty or contains opposing color piece
-            if (move.isJump()) {
+            if (move instanceof KnightMove) {
                 return true;
-            } else if (move.isCastle()) {
+            } else if (move instanceof PawnCaptureMove) {
+                // TODO fill this out
+            } else if (move instanceof KingCastleMove) {
                 //TODO conditions
                 //king not in check
                 //not moving through check
