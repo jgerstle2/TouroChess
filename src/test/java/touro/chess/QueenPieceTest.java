@@ -12,12 +12,12 @@ public class QueenPieceTest {
         Location startLocation = new Location(2, 1);
         QueenPiece queenPiece = new QueenPiece(startLocation, PieceColor.White);
         List<Move> expectedMoveList = new ArrayList<>();
-        expectedMoveList.add(new Move(startLocation, new Location(2,0),false)); //expected horizontal move
-        expectedMoveList.add(new Move(startLocation, new Location(0,1),false)); //expected vertical move
-        expectedMoveList.add(new Move(startLocation, new Location(3,2),false)); //expected diagonal up & right
-        expectedMoveList.add(new Move(startLocation, new Location(1,0),false)); //expected diagonal down & left
-        expectedMoveList.add(new Move(startLocation, new Location(3,0),false)); //expected diagonal up & left
-        expectedMoveList.add(new Move(startLocation, new Location(1,2),false)); //expected diagonal down & right
+        expectedMoveList.add(new Move(startLocation, new Location(2,0))); //expected horizontal move
+        expectedMoveList.add(new Move(startLocation, new Location(0,1))); //expected vertical move
+        expectedMoveList.add(new Move(startLocation, new Location(3,2))); //expected diagonal up & right
+        expectedMoveList.add(new Move(startLocation, new Location(1,0))); //expected diagonal down & left
+        expectedMoveList.add(new Move(startLocation, new Location(3,0))); //expected diagonal up & left
+        expectedMoveList.add(new Move(startLocation, new Location(1,2))); //expected diagonal down & right
 
         //when
         List<Move> moveList = queenPiece.getMoves();

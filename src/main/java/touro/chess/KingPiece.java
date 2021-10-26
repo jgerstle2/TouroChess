@@ -1,7 +1,6 @@
 package touro.chess;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class KingPiece extends AbstractPiece{
@@ -24,17 +23,22 @@ public class KingPiece extends AbstractPiece{
         Location southWest = new Location(currentRow - 1, currentColumn -1);
         Location northEast = new Location(currentRow + 1, currentColumn + 1);
         Location northWest = new Location(currentRow - 1, currentColumn + 1);
+        Location castleRight = new Location(currentRow, currentColumn + 2);
+        Location castleLeft = new Location(currentRow, currentColumn - 2);
 
         //list of all legal moves with all the locations
         ArrayList<Move> legalMoves = new ArrayList<>();
-        legalMoves.add(new Move(currentLocation, east, false));
-        legalMoves.add(new Move(currentLocation, west, false));
-        legalMoves.add(new Move(currentLocation, north, false));
-        legalMoves.add(new Move(currentLocation, south, false));
-        legalMoves.add(new Move(currentLocation, southEast, false));
-        legalMoves.add(new Move(currentLocation, southWest, false));
-        legalMoves.add(new Move(currentLocation, northEast, false));
-        legalMoves.add(new Move(currentLocation, northWest, false));
+        legalMoves.add(new Move(currentLocation, east));
+        legalMoves.add(new Move(currentLocation, west));
+        legalMoves.add(new Move(currentLocation, north));
+        legalMoves.add(new Move(currentLocation, south));
+        legalMoves.add(new Move(currentLocation, southEast));
+        legalMoves.add(new Move(currentLocation, southWest));
+        legalMoves.add(new Move(currentLocation, northEast));
+        legalMoves.add(new Move(currentLocation, northWest));
+
+        legalMoves.add(new KingCastleMove(currentLocation, castleLeft));
+        legalMoves.add(new KingCastleMove(currentLocation, castleRight));
 
         return legalMoves;
     }
