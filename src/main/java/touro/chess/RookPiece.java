@@ -22,7 +22,7 @@ public class RookPiece extends AbstractPiece
             //check if the row and col are not the same as original location if not add new move to list
                 if (curLocation.getRow() != newLocation.getRow() || curLocation.getColumn() != newLocation.getColumn())
                 {
-                    list.add(new Move(curLocation, newLocation, false));
+                    list.add(new Move(curLocation, newLocation));
                 }
         }
         //for every col on the board adding one to the original col placement
@@ -32,7 +32,7 @@ public class RookPiece extends AbstractPiece
             //check if the row and col are not the same as original location if not add new move to list
             if (curLocation.getRow() != newLoc.getRow() || curLocation.getColumn() != newLoc.getColumn())
             {
-                list.add(new Move(curLocation, newLoc, false));
+                list.add(new Move(curLocation, newLoc));
             }
         }
         return list;

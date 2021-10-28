@@ -20,11 +20,11 @@ public class QueenPiece extends AbstractPiece{
 
         //horizontal moves:
         for (newCol = 0; newCol < 8; newCol++){
-            moveList.add(new Move(currentLocation, new Location(row, newCol),false));
+            moveList.add(new Move(currentLocation, new Location(row, newCol)));
         }
         //vertical moves:
         for (newRow = 0; newRow < 8; newRow++){
-            moveList.add(new Move(currentLocation, new Location(newRow, col), false));
+            moveList.add(new Move(currentLocation, new Location(newRow, col)));
         }
 
         //diagonal moves:
@@ -32,7 +32,7 @@ public class QueenPiece extends AbstractPiece{
         newCol = col +1;
         newRow = row +1;
         while(newCol < 8 && newRow < 8 ){
-            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol)));
             newCol++;
             newRow++;
         }
@@ -41,7 +41,7 @@ public class QueenPiece extends AbstractPiece{
         newCol = col-1;
         newRow = row-1;
         while(newCol > -1 && newRow > -1 ){
-            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol)));
             newCol--;
             newRow--;
         }
@@ -50,7 +50,7 @@ public class QueenPiece extends AbstractPiece{
         newCol = col-1;
         newRow = row+1;
         while(newCol > -1 && newRow < 8 ){
-            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol)));
             newCol--;
             newRow++;
         }
@@ -59,7 +59,7 @@ public class QueenPiece extends AbstractPiece{
         newCol = col+1;
         newRow = row-1;
         while(newCol < 8 && newRow > -1 ){
-            moveList.add(new Move(currentLocation, new Location(newRow,newCol),false));
+            moveList.add(new Move(currentLocation, new Location(newRow,newCol)));
             newCol++;
             newRow--;
         }

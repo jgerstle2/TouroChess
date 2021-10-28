@@ -9,6 +9,7 @@ public abstract class AbstractPiece {
 
     private Location location;
     private final PieceColor color;
+    private boolean moved = false;
 
     // How should we represent the piece's image?
 
@@ -23,10 +24,15 @@ public abstract class AbstractPiece {
 
     public void setLocation(Location location) {
         this.location = location;
+        moved = true;
     }
 
     public PieceColor getColor() {
         return color;
+    }
+
+    public boolean hasMoved(){
+        return moved;
     }
 
     /**

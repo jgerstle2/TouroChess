@@ -54,7 +54,7 @@ public class BoardTest {
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(4,1);
         board.setPiece(currentLocation, piece);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -71,7 +71,7 @@ public class BoardTest {
         Location currentLocation = new Location(4,1);
         Location destinationLocation = new Location(4,6);
         board.setPiece(currentLocation, piece);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -88,7 +88,7 @@ public class BoardTest {
         Location currentLocation = new Location(2,1);
         Location destinationLocation = new Location(4,3);
         board.setPiece(currentLocation, piece);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -105,7 +105,7 @@ public class BoardTest {
         Location currentLocation = new Location(1, 2);
         Location destinationLocation = new Location(3,1);
         board.setPiece(currentLocation, piece);
-        Move move = new Move(currentLocation,destinationLocation,true);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -124,7 +124,7 @@ public class BoardTest {
         Location destinationLocation = new Location(4,1);
         board.setPiece(currentLocation, piece);
         board.setPiece(destinationLocation,piece);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -143,7 +143,7 @@ public class BoardTest {
         Location middleLocation = new Location(2,3);
         board.setPiece(currentLocation, piece);
         board.setPiece(middleLocation,piece);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -158,7 +158,7 @@ public class BoardTest {
         Board board = new Board();
         Location currentLocation = new Location(12,1);
         Location destinationLocation = new Location(4,1);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);
@@ -175,7 +175,7 @@ public class BoardTest {
         Location currentLocation = new Location(4,1);
         Location destinationLocation = new Location(4,1);
         board.setPiece(currentLocation, piece);
-        Move move = new Move(currentLocation,destinationLocation,false);
+        Move move = new Move(currentLocation,destinationLocation);
 
         //when
         board.isLegal(move);

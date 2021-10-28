@@ -15,15 +15,15 @@ public class KnightPiece extends AbstractPiece {
         int row = currentLocation.getRow();
         int col = currentLocation.getColumn();
 
-        List<Move> moves = new ArrayList<Move>();
-        moves.add( new Move(getLocation(), new Location(row + 1, col + 2), true));
-        moves.add( new Move(getLocation(), new Location(row - 1, col + 2), true));
-        moves.add( new Move(getLocation(), new Location(row + 1, col - 2), true));
-        moves.add( new Move(getLocation(), new Location(row - 1, col - 2), true));
-        moves.add( new Move(getLocation(), new Location(row + 2, col - 1), true));
-        moves.add( new Move(getLocation(), new Location(row + 2, col + 1), true));
-        moves.add( new Move(getLocation(), new Location(row - 2, col - 1), true));
-        moves.add( new Move(getLocation(), new Location(row - 2, col + 1), true));
+        List<Move> moves = new ArrayList<>();
+        moves.add( new KnightMove(getLocation(), new Location(row + 1, col + 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 1, col + 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 1, col - 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 1, col - 2)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 2, col - 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row + 2, col + 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 2, col - 1)));
+        moves.add( new KnightMove(getLocation(), new Location(row - 2, col + 1)));
 
         return moves;
     }
